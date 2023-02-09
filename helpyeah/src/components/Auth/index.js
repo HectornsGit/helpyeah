@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Auth = () => {
+const AuthWithOutToken = () => {
   return (
     <ul>
       <li>
@@ -13,4 +13,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthWithOutToken;

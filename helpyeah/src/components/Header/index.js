@@ -1,6 +1,7 @@
 import { useTokenContext } from "../../contexts/TokenContext";
 import { Link } from "react-router-dom";
-import Auth from "../Auth";
+import AuthWithOutToken from "../Auth";
+import AuthWithToken from "../LogOut";
 
 const Header = () => {
   const { token } = useTokenContext();
@@ -12,7 +13,10 @@ const Header = () => {
       </h1>
 
       {/* Si no hay token, pintamos los enlaces a registro y login */}
-      <nav>{!token && <Auth />}</nav>
+      <nav>
+        {!token && <AuthWithOutToken />}
+        {token && <AuthWithToken />}
+      </nav>
     </header>
   );
 };

@@ -12,16 +12,18 @@ import RegisterPage from "./pages/RegisterPage/";
 import LoginPage from "./pages/LoginPage/";
 import NotFoundPage from "./pages/NotFoundPage/";
 
+import NewEntryPage from "./pages/NewEntryPage";
+
 function App() {
   return (
     <>
       <Header />
-
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/entries/new" element={<NewEntryPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

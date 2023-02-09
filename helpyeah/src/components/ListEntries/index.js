@@ -12,15 +12,17 @@ const ListEntries = ({ entries }) => {
           solved,
           title,
           username,
+          file_name,
         } = entry;
         return (
           <li key={id}>
             <Entry
+              title={title}
+              description={description}
+              file_name={file_name}
               category={category}
               commentCount={commentCount}
-              description={description}
               solved={solved}
-              title={title}
               username={username}
             />
           </li>
