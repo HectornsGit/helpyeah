@@ -6,6 +6,7 @@ const useGetEntries = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     setLoading(true);
     try {
@@ -26,7 +27,7 @@ const useGetEntries = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [searchParams]);
   return { entries, setEntries, loading, error, searchParams, setSearchParams };
 };
 export default useGetEntries;
