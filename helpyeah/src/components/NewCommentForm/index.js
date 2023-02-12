@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import { useParams } from "react-router-dom";
 const { REACT_APP_BACKEND_PORT } = process.env;
-const NewCommentForm = () => {
+const NewCommentForm = ({ setComments, comments }) => {
   //controlamos los estados de los inputs.
   const [text, setText] = useState("");
   const { id } = useParams();
@@ -28,17 +28,15 @@ const NewCommentForm = () => {
             event.preventDefault();
 
             // Accedemos al input de ficheros con la referencia y nos traemos las imágenes que hay subidas en el input
-            const files = filesInputRef.current.files;
+            const files = filesInputRef.current?.files;
 
             const formData = new FormData();
 
             formData.set("text", text);
 
             if (files.length) {
-              console.log(files);
               formData.set(files.name, files);
             }
-
             const res = await fetch(
               `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
               {
@@ -55,9 +53,21 @@ const NewCommentForm = () => {
             if (!res.ok) {
               throw new Error(body.message);
             }
+            console.log(body.data.file_name);
+
+            setComments([
+              ...comments,
+              {
+                id: body.data.id,
+                entry_id: id,
+                text: body.data.text,
+                creation_date: body.data.creation_date,
+                user_id: body.data.idUser,
+                file_name: body.data.file_name,
+              },
+            ]);
 
             // Redireccionamos al usuario a la página principal
-            navigate("/");
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);

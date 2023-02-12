@@ -18,7 +18,7 @@ const useGetEntryById = (id) => {
         if (!res.status === 200) {
           throw new Error();
         }
-
+        console.log(body);
         if (body.data.entry.length > 0) {
           setEntry(body.data.entry[0]);
         }

@@ -1,8 +1,6 @@
 import "./style.css";
-import { Link } from "react-router-dom";
 import Comment from "../Comment";
 
-//C.id, C.user_id, C.entry_id, C.text, C.file_name, C.creation_date
 const CommentList = ({ comments }) => {
   return (
     <ul className="commentList">

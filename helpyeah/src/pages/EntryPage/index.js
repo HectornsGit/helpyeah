@@ -3,12 +3,11 @@ import NewCommentForm from "../../components/NewCommentForm";
 import { useTokenContext } from "../../contexts/TokenContext";
 import useGetEntryById from "../../hooks/useGetEntryById";
 import Entry from "../../components/Entry";
-import Comment from "../../components/Comment";
 import CommentList from "../../components/CommentList";
 
 const EntryPage = () => {
   const { id } = useParams();
-  const { entry, comments } = useGetEntryById(id);
+  const { entry, comments, setComments } = useGetEntryById(id);
   return (
     <section>
       {Object.values(entry).length > 0 && (
@@ -23,7 +22,7 @@ const EntryPage = () => {
         />
       )}
       {comments.length > 0 && <CommentList comments={comments} />}
-      <NewCommentForm />
+      <NewCommentForm setComments={setComments} comments={comments} />
     </section>
   );
 };
