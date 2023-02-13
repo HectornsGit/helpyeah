@@ -17,6 +17,7 @@ import ProfilePage from "./pages/ProfilePage";
 import EntryPage from "./pages/EntryPage";
 
 import useGetEntries from "./hooks/useGetEntries";
+
 function App() {
   const { entries, setEntries } = useGetEntries();
   return (
