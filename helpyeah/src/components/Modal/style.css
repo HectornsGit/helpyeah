@@ -1,0 +1,16 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-content: center;
+}
+
+.modal .modalContainer {
+  margin: 4rem;
+  padding: 1rem;
+  background-color: rgb(255, 253, 253);
+}

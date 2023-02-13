@@ -9,10 +9,10 @@ const useGetUser = (id) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const { REACT_APP_BACKEND_PORT } = process.env;
     setLoading(true);
 
     try {
+      const { REACT_APP_BACKEND_PORT } = process.env;
       const fetchUserById = async (id) => {
         const res = await fetch(
           `http://localhost:${REACT_APP_BACKEND_PORT}/users/${id}`
@@ -20,11 +20,11 @@ const useGetUser = (id) => {
 
         const body = await res.json();
 
-        if (!res.status === "ok") {
+        if (!res.status === 200) {
           throw new Error(res.message);
         }
 
-        setUser(body.data);
+        setUser(body.data.user);
       };
 
       fetchUserById(id);
@@ -33,7 +33,7 @@ const useGetUser = (id) => {
     } finally {
       setLoading(false);
     }
-  });
+  }, [id]);
   return { user, loading, error, setUser };
 };
 

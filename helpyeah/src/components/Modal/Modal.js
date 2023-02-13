@@ -5,22 +5,15 @@ const Modal = ({ children, setShowModal }) => {
     <div
       className="modal"
       onClick={(event) => {
-        event.preventDefault();
-
         //cambiamos el estado ShowModal a false para cerrar el modal.
-        setShowModal(false);
+        //Utilizamos .closest para seleccionar el elemento o el padre más cercano que coincida con el párametro que se le pasa.
+        //Con esto comprobamos si donde clickeamos es hijo de .modalContainer (en este caso), si no lo es se cierra.
+        if (!event.target.closest(".modalContainer")) {
+          setShowModal(false);
+        }
       }}
     >
-      <div
-        className="modalContainer"
-        onClick={(event) => {
-          event.preventDefault();
-          //cancelamos la propagacion para que no se active el onClick del fondo del modal.
-          event.stopPropagation();
-        }}
-      >
-        {children}
-      </div>
+      <div className="modalContainer">{children}</div>
     </div>
   );
 };

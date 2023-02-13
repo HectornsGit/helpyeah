@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import { useParams } from "react-router-dom";
 const { REACT_APP_BACKEND_PORT } = process.env;
-const NewCommentForm = ({ setComments, comments }) => {
+const NewCommentForm = ({ setComments, comments, setShowModal }) => {
   //controlamos los estados de los inputs.
   const [text, setText] = useState("");
   const { id } = useParams();
@@ -35,7 +35,9 @@ const NewCommentForm = ({ setComments, comments }) => {
             formData.set("text", text);
 
             if (files.length) {
-              formData.set(files.name, files);
+              for (const file of files) {
+                formData.set("file", file);
+              }
             }
             const res = await fetch(
               `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
@@ -55,6 +57,7 @@ const NewCommentForm = ({ setComments, comments }) => {
             }
             console.log(body.data.file_name);
 
+            //Actualizamos el estado con el nuevo comentario para renderizar de nuevo la página.
             setComments([
               ...comments,
               {
@@ -66,8 +69,9 @@ const NewCommentForm = ({ setComments, comments }) => {
                 file_name: body.data.file_name,
               },
             ]);
-
-            // Redireccionamos al usuario a la página principal
+            setText("");
+            filesInputRef.current.value = "";
+            setShowModal(false);
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);

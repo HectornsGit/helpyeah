@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
+import { useNavigate } from "react-router-dom";
 
 const AuthWithToken = () => {
   const { token, setToken, loggedUser } = useTokenContext();
+
+  const navigate = useNavigate();
   return (
     <ul>
-      <li>
-        <Link to="/entries/new">Nueva entrada</Link>
-      </li>
-
       <li>
         <button
           onClick={() => {
             setToken("");
+            navigate("/");
           }}
         >
           Logout

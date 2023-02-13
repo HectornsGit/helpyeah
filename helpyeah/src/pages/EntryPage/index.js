@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import NewCommentForm from "../../components/NewCommentForm";
 import { useTokenContext } from "../../contexts/TokenContext";
 import useGetEntryById from "../../hooks/useGetEntryById";
 import Entry from "../../components/Entry";
@@ -12,6 +11,8 @@ const EntryPage = () => {
     <section>
       {Object.values(entry).length > 0 && (
         <Entry
+          comments={comments}
+          setComments={setComments}
           title={entry.title}
           description={entry.description}
           file_name={entry.file_name}
@@ -22,7 +23,6 @@ const EntryPage = () => {
         />
       )}
       {comments.length > 0 && <CommentList comments={comments} />}
-      <NewCommentForm setComments={setComments} comments={comments} />
     </section>
   );
 };

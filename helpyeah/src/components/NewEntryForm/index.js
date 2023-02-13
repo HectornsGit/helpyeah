@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 const { REACT_APP_BACKEND_PORT } = process.env;
 
-const NewEntryForm = () => {
+const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
   //Estados para controlar los inputs.
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -44,7 +44,7 @@ const NewEntryForm = () => {
 
             if (files.length) {
               console.log(files);
-              formData.set(files.name, files);
+              formData.set("file", files);
             }
 
             //Hacemos la peticion POST a la API y mandamos el formData en el body.
@@ -66,9 +66,16 @@ const NewEntryForm = () => {
             if (!res.ok) {
               throw new Error(body.message);
             }
+            console.log("AQUI ", entries);
+            setEntries([body.data, ...entries]);
 
-            //Redireccionamos al usuario a la pagina principal.
-            navigate("/");
+            //Reseteamos los inputs del formulario.
+            setTitle("");
+            setDescription("");
+            setCategory("Otros");
+
+            //Cerramos la modal cambiando el estado.
+            setShowModal(false);
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);

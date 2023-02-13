@@ -2,27 +2,30 @@ import Modal from "../Modal/Modal";
 import { useState } from "react";
 import NewEntryForm from "../NewEntryForm";
 
-const Footer = () => {
+const Footer = ({ entries, setEntries }) => {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <footer>
-        {/* <button
+        <button
           className="newEntryButton"
           onClick={(event) => {
             setShowModal(true);
           }}
         >
           Nueva Entrada
-        </button> */}
+        </button>
       </footer>
 
-      {/* {showModal && (
+      {showModal && (
         <Modal setShowModal={setShowModal}>
-          <NewEntryForm />
+          <NewEntryForm
+            setShowModal={setShowModal}
+            entries={entries}
+            setEntries={setEntries}
+          />
         </Modal>
-      )} */}
+      )}
     </>
   );
 };
