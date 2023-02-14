@@ -14,6 +14,9 @@ const useGetUser = (id) => {
     try {
       const { REACT_APP_BACKEND_PORT } = process.env;
       const fetchUserById = async (id) => {
+        if (!id) {
+          return;
+        }
         const res = await fetch(
           `http://localhost:${REACT_APP_BACKEND_PORT}/users/${id}`
         );

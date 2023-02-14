@@ -1,8 +1,9 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTokenContext } from "./contexts/TokenContext";
 
 import Header from "./components/Header/";
 import Footer from "./components/Footer/";
@@ -20,6 +21,7 @@ import useGetEntries from "./hooks/useGetEntries";
 
 function App() {
   const { entries, setEntries } = useGetEntries();
+  const { token } = useTokenContext();
   return (
     <>
       <Header />
@@ -34,7 +36,7 @@ function App() {
         </Routes>
       </main>
       <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
-      <Footer entries={entries} setEntries={setEntries} />
+      {token && <Footer entries={entries} setEntries={setEntries} />}
     </>
   );
 }

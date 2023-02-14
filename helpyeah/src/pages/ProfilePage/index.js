@@ -1,4 +1,3 @@
-import { useTokenContext } from "../../contexts/TokenContext";
 import Avatar from "../../components/Avatar";
 import getTimeAgo from "../../utils/getTimeAgo";
 import useGetUser from "../../hooks/useGetUsers";
@@ -7,7 +6,6 @@ import { useParams } from "react-router-dom";
 // import { toast } from "react-toastify";
 
 const ProfilePage = () => {
-  const { loggedUser } = useTokenContext();
   const { id } = useParams();
   const { user } = useGetUser(id);
   const { REACT_APP_BACKEND_PORT } = process.env;

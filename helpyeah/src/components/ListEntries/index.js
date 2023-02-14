@@ -4,6 +4,7 @@ const ListEntries = ({ entries }) => {
   return (
     <ul>
       {entries.map((entry) => {
+        console.log("aquiii", entry);
         const {
           category,
           commentCount,
@@ -13,7 +14,10 @@ const ListEntries = ({ entries }) => {
           title,
           username,
           file_name,
+          user_id,
+          avatar,
         } = entry;
+
         return (
           <li key={id}>
             <Entry
@@ -24,6 +28,9 @@ const ListEntries = ({ entries }) => {
               commentCount={commentCount}
               solved={solved}
               username={username}
+              entry_id={id}
+              user_id={user_id}
+              avatar={avatar}
             />
           </li>
         );
@@ -32,12 +39,3 @@ const ListEntries = ({ entries }) => {
   );
 };
 export default ListEntries;
-
-/*category: "Audio"
-commentCount: 1
-description: "Homer debería limpiar los canalones de la casa. 2"
-file_name: "Sun Jan 08 2023-539d87f676fd452589aab06777c4a51a.gif"
-id: 3
-solved: 1
-title: "Limpiar los canalones 2"
-username: "Mitch"*/

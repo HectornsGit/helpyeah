@@ -54,7 +54,7 @@ export const CustomTokenContextProvider = ({ children }) => {
 
     //Llamo a la funcion que hace el fetch.
     fetchUserProfile();
-  }, [token, navigate, setToken]);
+  }, [token, navigate, setToken, REACT_APP_BACKEND_PORT]);
 
   return (
     <TokenContext.Provider

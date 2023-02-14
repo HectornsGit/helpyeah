@@ -78,7 +78,7 @@ const LoginForm = () => {
         placeholder="******"
       />
 
-      <button>Registrarse</button>
+      <button>Iniciar sesion</button>
     </form>
   );
 };

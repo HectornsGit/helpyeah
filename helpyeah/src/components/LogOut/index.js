@@ -1,24 +1,34 @@
-import { Navigate } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { useNavigate } from "react-router-dom";
 
 const AuthWithToken = () => {
-  const { token, setToken, loggedUser } = useTokenContext();
+  const { setToken, loggedUser } = useTokenContext();
+  const { REACT_APP_BACKEND_PORT } = process.env;
 
   const navigate = useNavigate();
   return (
-    <ul>
-      <li>
-        <button
-          onClick={() => {
-            setToken("");
-            navigate("/");
-          }}
-        >
-          Logout
-        </button>
-      </li>
-    </ul>
+    <>
+      {Object.values(loggedUser).length && (
+        <ul>
+          <li>
+            <img
+              alt={`avatar de ${loggedUser.username}`}
+              src={`http://localhost:${REACT_APP_BACKEND_PORT}/${loggedUser.avatar}`}
+            />
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                setToken("");
+                navigate("/");
+              }}
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      )}
+    </>
   );
 };
 

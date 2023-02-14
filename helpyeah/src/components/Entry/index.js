@@ -1,8 +1,9 @@
 import Modal from "../Modal/Modal";
 import NewCommentForm from "../NewCommentForm";
-import useGetEntryById from "../../hooks/useGetEntryById";
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Entry = ({
   comments,
@@ -13,11 +14,25 @@ const Entry = ({
   category,
   username,
   solved,
+  entry_id,
+  user_id,
+  avatar,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
+  const { REACT_APP_BACKEND_PORT } = process.env;
+  const navigate = useNavigate();
+
   return (
-    <article className={solved ? "solved" : "unsolved"}>
+    <article
+      className={solved ? "solved" : "unsolved"}
+      onClick={(event) => {
+        if (id) {
+          return;
+        }
+        navigate(`/entries/${entry_id}`);
+      }}
+    >
       <header>
         <h2>{title}</h2>
       </header>
@@ -25,18 +40,36 @@ const Entry = ({
       <p>{file_name}</p>
       <p>{category}</p>
       <footer>
-        <h3>{username}</h3>
+        <ul>
+          <li>
+            <img
+              src={`http://localhost:${REACT_APP_BACKEND_PORT}/${avatar}`}
+              alt={"hola"}
+            />
+          </li>
+          <li>
+            <h3>{username}</h3>
+          </li>
+        </ul>
 
-        <button
-          className="newCommentButton"
-          onClick={(event) => {
-            setShowModal(true);
-          }}
-        >
-          Comentar
-        </button>
+        {id && (
+          <ul>
+            <li>
+              <button
+                className="newCommentButton"
+                onClick={(event) => {
+                  setShowModal(true);
+                }}
+              >
+                Comentar
+              </button>
+            </li>
 
-        <button>Eliminar</button>
+            <li>
+              <button>Eliminar</button>
+            </li>
+          </ul>
+        )}
       </footer>
       {showModal && (
         <Modal setShowModal={setShowModal}>

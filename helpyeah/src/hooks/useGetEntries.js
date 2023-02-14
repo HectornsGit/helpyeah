@@ -16,7 +16,7 @@ const useGetEntries = () => {
           `http://localhost:${REACT_APP_BACKEND_PORT}/entries?${searchParams.toString()}`
         );
         const body = await res.json();
-        if (!res.status == 200) {
+        if (!res.status === 200) {
           throw new Error();
         }
         setEntries(body.data.entries);
