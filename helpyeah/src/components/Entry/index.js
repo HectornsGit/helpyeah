@@ -5,22 +5,22 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Entry = ({
-  comments,
-  setComments,
-  title,
-  description,
-  file_name,
-  category,
-  username,
-  solved,
-  entry_id,
-  user_id,
-  avatar,
-}) => {
+const Entry = ({ comments, setComments, entry }) => {
+  const {
+    title,
+    description,
+    file_name,
+    category,
+    username,
+    solved,
+    id: entry_id,
+    user_id,
+    avatar,
+  } = entry;
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env;
+  console.log(REACT_APP_BACKEND_PORT);
   const navigate = useNavigate();
 
   return (
@@ -44,7 +44,7 @@ const Entry = ({
           <li>
             <img
               src={`http://localhost:${REACT_APP_BACKEND_PORT}/${avatar}`}
-              alt={"hola"}
+              alt={`foto de ${username}`}
             />
           </li>
           <li>

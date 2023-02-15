@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useGetEntryById = (id) => {
-  const [entry, setEntry] = useState({});
+  const [entry, setEntry] = useState(null);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -15,10 +15,9 @@ const useGetEntryById = (id) => {
           `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}}`
         );
         const body = await res.json();
-        if (!res.status === 200) {
-          throw new Error();
+        if (!res.ok) {
+          throw new Error(body.message);
         }
-        console.log(body);
         if (body.data.entry.length > 0) {
           setEntry(body.data.entry[0]);
         }
@@ -29,7 +28,9 @@ const useGetEntryById = (id) => {
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   }, [id]);
   return {

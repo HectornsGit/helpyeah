@@ -1,3 +1,5 @@
+import HalfRating from "../Rating";
+
 const Comment = ({ id, user_id, entry_id, text, file_name, creation_date }) => {
   return (
     <article>
@@ -9,6 +11,9 @@ const Comment = ({ id, user_id, entry_id, text, file_name, creation_date }) => {
             <p>{entry_id}</p>
           </li>
           <li>{file_name}</li>
+          <li>
+            <HalfRating comment_id={id} entry_id={entry_id} />
+          </li>
         </ul>
       </footer>
     </article>

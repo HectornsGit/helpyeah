@@ -20,8 +20,9 @@ import EntryPage from "./pages/EntryPage";
 import useGetEntries from "./hooks/useGetEntries";
 
 function App() {
-  const { entries, setEntries } = useGetEntries();
+  const { entries, setEntries, loading } = useGetEntries();
   const { token } = useTokenContext();
+  if (loading) return <p>Cargando</p>;
   return (
     <>
       <Header />

@@ -21,16 +21,17 @@ const ListEntries = ({ entries }) => {
         return (
           <li key={id}>
             <Entry
-              title={title}
-              description={description}
-              file_name={file_name}
-              category={category}
-              commentCount={commentCount}
-              solved={solved}
-              username={username}
-              entry_id={id}
-              user_id={user_id}
-              avatar={avatar}
+              entry={entry}
+              // title={title}
+              // description={description}
+              // file_name={file_name}
+              // category={category}
+              // commentCount={commentCount}
+              // solved={solved}
+              // username={username}
+              // entry_id={id}
+              // user_id={user_id}
+              // avatar={avatar}
             />
           </li>
         );

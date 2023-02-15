@@ -17,7 +17,7 @@
 - Modal✅
 - ErrorMessage
 - StarIcon
-- Spinner
+- Spinner✅
 
 ## Hooks:
 
