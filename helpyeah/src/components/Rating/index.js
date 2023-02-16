@@ -5,7 +5,13 @@ import { useState } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
 
 //esta funcion tiene que recibir un setComments o algo así y actualizarlo manualmente cuando recibamos el nuevo rating despues de votar
-export default function HalfRating({ entry_id, comment_id }) {
+export default function HalfRating({
+  entry_id,
+  comment_id,
+  setComments,
+  comments,
+  averageRating,
+}) {
   const { token } = useTokenContext();
   const { REACT_APP_BACKEND_PORT } = process.env;
 
@@ -13,7 +19,7 @@ export default function HalfRating({ entry_id, comment_id }) {
     <Stack spacing={1}>
       <Rating
         name="half-rating"
-        defaultValue={3} //esto es lo que viene del backend inicialmente y despues del estado que guarda los comentarios
+        defaultValue={Math.round(averageRating)} //esto es lo que viene del backend inicialmente y despues del estado que guarda los comentarios
         precision={1}
         onChange={async (e, newValue) => {
           const res = await fetch(
@@ -29,7 +35,6 @@ export default function HalfRating({ entry_id, comment_id }) {
           );
 
           const body = await res.json();
-
           //devolver el nuevo rating calculado después del voto
 
           if (!res.ok) {
@@ -40,3 +45,6 @@ export default function HalfRating({ entry_id, comment_id }) {
     </Stack>
   );
 }
+
+//PREGUNTAR A BERTO COMO PODRIAMOS HACER LA FETCH PARA QUE LUEGO DE VOTAR APAREZCA REFLEJADO EL AVERAGE RATING.
+//PREGUNTAR LO DEL NAVLIST DE MUI.

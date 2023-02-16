@@ -1,12 +1,19 @@
 import "./style.css";
 import Comment from "../Comment";
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, setComments }) => {
   return (
     <ul className="commentList">
       {comments.map((comment) => {
-        const { id, user_id, entry_id, text, file_name, creation_date } =
-          comment;
+        const {
+          id,
+          user_id,
+          entry_id,
+          text,
+          file_name,
+          creation_date,
+          averageRating,
+        } = comment;
 
         return (
           <li key={id}>
@@ -17,6 +24,9 @@ const CommentList = ({ comments }) => {
               text={text}
               file_name={file_name}
               creation_date={creation_date}
+              comments={comments}
+              setComments={setComments}
+              averageRating={averageRating}
             />
           </li>
         );

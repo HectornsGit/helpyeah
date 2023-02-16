@@ -1,6 +1,16 @@
 import HalfRating from "../Rating";
 
-const Comment = ({ id, user_id, entry_id, text, file_name, creation_date }) => {
+const Comment = ({
+  id,
+  user_id,
+  entry_id,
+  text,
+  file_name,
+  creation_date,
+  setComments,
+  comments,
+  averageRating,
+}) => {
   return (
     <article>
       <p>{text}</p> <p>{creation_date}</p>
@@ -12,7 +22,13 @@ const Comment = ({ id, user_id, entry_id, text, file_name, creation_date }) => {
           </li>
           <li>{file_name}</li>
           <li>
-            <HalfRating comment_id={id} entry_id={entry_id} />
+            <HalfRating
+              comment_id={id}
+              entry_id={entry_id}
+              setComments={setComments}
+              comments={comments}
+              averageRating={averageRating}
+            />
           </li>
         </ul>
       </footer>

@@ -1,38 +1,17 @@
 import Modal from "../Modal/Modal";
 import NewCommentForm from "../NewCommentForm";
-
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Entry = ({ comments, setComments, entry }) => {
-  const {
-    title,
-    description,
-    file_name,
-    category,
-    username,
-    solved,
-    id: entry_id,
-    user_id,
-    avatar,
-  } = entry;
+  const { title, description, file_name, category, username, solved, avatar } =
+    entry;
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env;
-  console.log(REACT_APP_BACKEND_PORT);
-  const navigate = useNavigate();
 
   return (
-    <article
-      className={solved ? "solved" : "unsolved"}
-      onClick={(event) => {
-        if (id) {
-          return;
-        }
-        navigate(`/entries/${entry_id}`);
-      }}
-    >
+    <article className={solved ? "solved" : "unsolved"}>
       <header>
         <h2>{title}</h2>
       </header>

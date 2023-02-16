@@ -7,22 +7,22 @@
 - NewEntryForm✅
 - Entry ✅
 - EntryList ✅
-- EntryFile
 - EntryVotesStars
 - SearchForm
-- NewComment✅
-- Avatar✅
-- Header✅
-- Footer✅
-- Modal✅
+- NewComment ✅
+- Avatar ✅
+- Header ✅
+- Footer ✅
+- Modal ✅
 - ErrorMessage
 - StarIcon
-- Spinner✅
+- Spinner ✅
 
 ## Hooks:
 
-- useEntries
-- useEntryById
+- useGetEntries ✅
+- useGetEntryById ✅
+- useGetUsers ✅
 - useLocalStorage ✅
 
 ## Pages:
@@ -31,6 +31,6 @@
 - RegisterPage ✅
 - NewEntryPage
 - LoginPage ✅
-- EntryPage✅
+- EntryPage ✅
 - EntriesPage ✅
-- CommentPage (modal)✅
+- CommentPage (modal) ✅
