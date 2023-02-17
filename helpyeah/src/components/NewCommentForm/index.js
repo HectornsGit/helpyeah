@@ -67,6 +67,8 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
                 creation_date: body.data.creation_date,
                 user_id: body.data.idUser,
                 file_name: body.data.file_name,
+                avatar: body.data.avatar,
+                username: body.data.username,
               },
             ]);
             setText("");

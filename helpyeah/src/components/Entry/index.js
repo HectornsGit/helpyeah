@@ -1,14 +1,53 @@
 import Modal from "../Modal/Modal";
 import NewCommentForm from "../NewCommentForm";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useTokenContext } from "../../contexts/TokenContext";
 
-const Entry = ({ comments, setComments, entry }) => {
-  const { title, description, file_name, category, username, solved, avatar } =
-    entry;
+const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
+  const { loggedUser, token } = useTokenContext();
+  const {
+    id: entry_id,
+    title,
+    description,
+    file_name,
+    category,
+    username,
+    solved,
+    avatar,
+    user_id,
+  } = entry;
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env;
+
+  const navigate = useNavigate();
+
+  const deleteEntry = async () => {
+    const res = await fetch(
+      `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    const body = await res.json();
+
+    if (!res.ok) {
+      throw new Error(body.message);
+    }
+
+    const filteredEntries = entries.filter((entry) => {
+      return entry.id !== id;
+    });
+
+    setEntries(filteredEntries);
+
+    navigate("/");
+  };
 
   return (
     <article className={solved ? "solved" : "unsolved"}>
@@ -43,10 +82,17 @@ const Entry = ({ comments, setComments, entry }) => {
                 Comentar
               </button>
             </li>
-
-            <li>
-              <button>Eliminar</button>
-            </li>
+            {loggedUser.id === user_id && (
+              <li>
+                <button
+                  onClick={(event) => {
+                    deleteEntry();
+                  }}
+                >
+                  Eliminar
+                </button>
+              </li>
+            )}
           </ul>
         )}
       </footer>

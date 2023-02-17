@@ -1,4 +1,8 @@
 import HalfRating from "../Rating";
+import { saveAs } from "file-saver";
+import { Link } from "react-router-dom";
+import Avatar from "../Avatar";
+import { useTokenContext } from "../../contexts/TokenContext";
 
 const Comment = ({
   id,
@@ -10,17 +14,54 @@ const Comment = ({
   setComments,
   comments,
   averageRating,
+  avatar,
+  username,
 }) => {
+  const { REACT_APP_BACKEND_PORT } = process.env;
+  const { loggedUser, token } = useTokenContext();
+
+  // Función para borrar un comentario.
+
+  const deleteComent = async () => {
+    const res = await fetch(
+      `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${entry_id}/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    const body = await res.json();
+
+    if (!res.ok) {
+      throw new Error(body.message);
+    }
+
+    const filteredComments = comments.filter((comment) => {
+      return comment.id !== id;
+    });
+    setComments(filteredComments);
+  };
+
   return (
     <article>
-      <p>{text}</p> <p>{creation_date}</p>
+      <p>{text}</p>
+
+      <button
+        onClick={(e) => {
+          saveAs(
+            `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
+            file_name
+          );
+        }}
+      >
+        DESCARGA
+      </button>
+      <p>{creation_date}</p>
       <footer>
         <ul>
-          <li>{user_id}</li>
-          <li>
-            <p>{entry_id}</p>
-          </li>
-          <li>{file_name}</li>
           <li>
             <HalfRating
               comment_id={id}
@@ -30,16 +71,28 @@ const Comment = ({
               averageRating={averageRating}
             />
           </li>
+          <li>
+            <Link to={`/users/${user_id}`}>
+              <article>
+                {username}
+                <Avatar avatar={avatar} username={username} />
+              </article>
+            </Link>
+          </li>
+          {loggedUser.id === user_id && (
+            <li>
+              <button
+                onClick={async (event) => {
+                  deleteComent();
+                }}
+              >
+                Eliminar
+              </button>
+            </li>
+          )}
         </ul>
       </footer>
     </article>
   );
 };
 export default Comment;
-
-/*creation_date: "2023-02-11T17:43:12.000Z"
-entry_id:1
-file_name: "Sat Feb 11 2023-Portal_de_necesidades (1).pdf"
-id: 1
-text: "Ahí adjunto archivo limpieza canalones."
-user_id: 4 */

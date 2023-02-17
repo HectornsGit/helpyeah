@@ -9,6 +9,8 @@ const CommentList = ({ comments, setComments }) => {
           id,
           user_id,
           entry_id,
+          avatar,
+          username,
           text,
           file_name,
           creation_date,
@@ -22,6 +24,8 @@ const CommentList = ({ comments, setComments }) => {
               user_id={user_id}
               entry_id={entry_id}
               text={text}
+              avatar={avatar}
+              username={username}
               file_name={file_name}
               creation_date={creation_date}
               comments={comments}

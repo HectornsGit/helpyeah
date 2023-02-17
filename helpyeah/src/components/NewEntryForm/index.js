@@ -43,8 +43,9 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
             formData.set("category", category);
 
             if (files.length) {
-              console.log(files);
-              formData.set("file", files);
+              for (const file of files) {
+                formData.set("file", file);
+              }
             }
 
             //Hacemos la peticion POST a la API y mandamos el formData en el body.

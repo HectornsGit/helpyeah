@@ -28,10 +28,16 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage entries={entries} />} />
+          <Route
+            path="/"
+            element={<HomePage entries={entries} setEntries={setEntries} />}
+          />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/entries/:id" element={<EntryPage />} />
+          <Route
+            path="/entries/:id"
+            element={<EntryPage entries={entries} setEntries={setEntries} />}
+          />
           <Route path="/users/:id" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
