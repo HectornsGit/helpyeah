@@ -7,15 +7,15 @@
 - NewEntryForm✅
 - Entry ✅
 - EntryList ✅
-- EntryVotesStars
+- EntryVotesStars ✅
 - SearchForm
 - NewComment ✅
 - Avatar ✅
 - Header ✅
 - Footer ✅
 - Modal ✅
-- ErrorMessage
-- StarIcon
+- ErrorMessage ✅
+- StarIcon ✅
 - Spinner ✅
 
 ## Hooks:
@@ -34,3 +34,14 @@
 - EntryPage ✅
 - EntriesPage ✅
 - CommentPage (modal) ✅
+
+## Cosas Pendientes:
+
+- Poner a funcionar el botón de Editar user.
+- Arreglar fallo del 'link' en las entries.
+- Arreglar el renderin de las entries en la homepage.
+- Arreglar que se visualice el average luego de votar.
+- Nav list de MUI como aplicarlo.
+- Gestionar que los errores aparezcan en la pantalla del cliente.
+- Que las estrellas del rating aparezcan vacias para los comments que no son tuyos y que aparezcan con el averageRating para los que son tuyos.
+- Organizar los comments por averageRating.

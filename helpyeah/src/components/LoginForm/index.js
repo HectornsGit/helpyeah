@@ -16,13 +16,10 @@ const LoginForm = () => {
 
   const { REACT_APP_BACKEND_PORT } = process.env;
 
-  // Función para para loguearse.
+  // Función para loguearse.
 
-  const login = async (event) => {
+  const login = async () => {
     try {
-      //Cancelamos la accion por defecto.
-      event.preventDefault();
-
       //Hacemos la peticion "POST" a la API  y enviamos en el body un JSON con los datos que ha introducido el usuario en el formulario de Login.
       const res = await fetch(
         `http://localhost:${REACT_APP_BACKEND_PORT}/users/login`,
@@ -59,6 +56,8 @@ const LoginForm = () => {
     <form
       className="loginForm"
       onSubmit={async (event) => {
+        //Cancelamos la accion por defecto.
+        event.preventDefault();
         login();
       }}
     >

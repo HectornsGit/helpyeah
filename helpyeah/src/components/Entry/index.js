@@ -1,8 +1,9 @@
 import Modal from "../Modal/Modal";
 import NewCommentForm from "../NewCommentForm";
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
+import { saveAs } from "file-saver";
 
 const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
   const { loggedUser, token } = useTokenContext();
@@ -55,20 +56,34 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
         <h2>{title}</h2>
       </header>
       <p>{description}</p>
-      <p>{file_name}</p>
+      {file_name && (
+        <button
+          onClick={(e) => {
+            saveAs(
+              `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
+              file_name
+            );
+          }}
+        >
+          DESCARGA
+        </button>
+      )}
+
       <p>{category}</p>
       <footer>
-        <ul>
-          <li>
-            <img
-              src={`http://localhost:${REACT_APP_BACKEND_PORT}/${avatar}`}
-              alt={`foto de ${username}`}
-            />
-          </li>
-          <li>
-            <h3>{username}</h3>
-          </li>
-        </ul>
+        <Link to={`/users/${user_id}`}>
+          <ul>
+            <li>
+              <img
+                src={`http://localhost:${REACT_APP_BACKEND_PORT}/${avatar}`}
+                alt={`foto de ${username}`}
+              />
+            </li>
+            <li>
+              <h3>{username}</h3>
+            </li>
+          </ul>
+        </Link>
 
         {id && (
           <ul>
@@ -76,6 +91,9 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
               <button
                 className="newCommentButton"
                 onClick={(event) => {
+                  if (!token) {
+                    navigate("/login");
+                  }
                   setShowModal(true);
                 }}
               >
