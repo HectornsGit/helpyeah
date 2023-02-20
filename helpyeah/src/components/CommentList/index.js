@@ -14,7 +14,7 @@ const CommentList = ({ comments, setComments }) => {
           text,
           file_name,
           creation_date,
-          averageRating,
+          likes,
         } = comment;
 
         return (
@@ -30,7 +30,7 @@ const CommentList = ({ comments, setComments }) => {
               creation_date={creation_date}
               comments={comments}
               setComments={setComments}
-              averageRating={averageRating}
+              likes={likes}
             />
           </li>
         );

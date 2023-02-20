@@ -1,8 +1,8 @@
-import HalfRating from "../Rating";
 import { saveAs } from "file-saver";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar";
 import { useTokenContext } from "../../contexts/TokenContext";
+import Like from "../Like";
 
 const Comment = ({
   id,
@@ -13,13 +13,12 @@ const Comment = ({
   creation_date,
   setComments,
   comments,
-  averageRating,
+  likes,
   avatar,
   username,
 }) => {
   const { REACT_APP_BACKEND_PORT } = process.env;
   const { loggedUser, token } = useTokenContext();
-
   // Función para borrar un comentario.
 
   const deleteComent = async () => {
@@ -62,15 +61,17 @@ const Comment = ({
       <p>{creation_date}</p>
       <footer>
         <ul>
-          <li>
-            <HalfRating
-              comment_id={id}
-              entry_id={entry_id}
-              setComments={setComments}
-              comments={comments}
-              averageRating={averageRating}
-            />
-          </li>
+          {loggedUser.id !== user_id && (
+            <li>
+              <Like
+                likes={likes}
+                comments={comments}
+                setComments={setComments}
+                entry_id={entry_id}
+                id={id}
+              />
+            </li>
+          )}
           <li>
             <Link to={`/users/${user_id}`}>
               <article>
