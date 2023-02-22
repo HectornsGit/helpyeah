@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 const useGetEntries = () => {
   const [entries, setEntries] = useState([]);
+  const [allEntries, setAllEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,6 +20,7 @@ const useGetEntries = () => {
         if (!res.status === 200) {
           throw new Error();
         }
+        setAllEntries(body.data.entries);
         setEntries(body.data.entries);
       };
       getEntries();
@@ -28,6 +30,14 @@ const useGetEntries = () => {
       setLoading(false);
     }
   }, [searchParams]);
-  return { entries, setEntries, loading, error, searchParams, setSearchParams };
+  return {
+    allEntries,
+    entries,
+    setEntries,
+    loading,
+    error,
+    searchParams,
+    setSearchParams,
+  };
 };
 export default useGetEntries;

@@ -55,7 +55,6 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
             if (!res.ok) {
               throw new Error(body.message);
             }
-            console.log(body.data.file_name);
 
             //Actualizamos el estado con el nuevo comentario para renderizar de nuevo la página.
             setComments([

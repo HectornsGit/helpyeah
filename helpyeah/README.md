@@ -37,9 +37,8 @@
 
 ## Cosas Pendientes:
 
-- Poner a funcionar el botón de Editar user.
 - Arreglar fallo del 'link' en las entries.
-- Arreglar el renderin de las entries en la homepage.
-- Nav list de MUI como aplicarlo.
-- Gestionar que los errores aparezcan en la pantalla del cliente.
-- Organizar los comments por Mas numero de likes.
+- Arreglar el renderin de las entries en la homepage cuando se borran.
+- Nav list de MUI como aplicarlo. https://mui.com/material-ui/api/menu-list/
+- Gestionar que los mensajes aparezcan en la pantalla del cliente.
+- Modal para el registerform y el login.

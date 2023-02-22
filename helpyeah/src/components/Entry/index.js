@@ -45,18 +45,29 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
       return entry.id !== id;
     });
 
-    setEntries(filteredEntries);
-
+    setEntries([...filteredEntries]);
     navigate("/");
   };
 
   return (
     <article className={solved ? "solved" : "unsolved"}>
-      <header>
-        <h2>{title}</h2>
-      </header>
-      <p>{description}</p>
-      {file_name && (
+      {!id && (
+        <Link to={`/entries/${entry.id}`}>
+          <header>
+            <h2>{title}</h2>
+          </header>
+          <p>{description}</p>
+        </Link>
+      )}
+      {id && (
+        <>
+          <header>
+            <h2>{title}</h2>
+          </header>
+          <p>{description}</p>
+        </>
+      )}
+      {id && file_name && (
         <button
           onClick={(e) => {
             saveAs(
@@ -70,6 +81,7 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
       )}
 
       <p>{category}</p>
+
       <footer>
         <Link to={`/users/${user_id}`}>
           <ul>

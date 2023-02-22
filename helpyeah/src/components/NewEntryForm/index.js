@@ -67,7 +67,7 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
             if (!res.ok) {
               throw new Error(body.message);
             }
-            console.log("AQUI ", entries);
+
             setEntries([body.data, ...entries]);
 
             //Reseteamos los inputs del formulario.

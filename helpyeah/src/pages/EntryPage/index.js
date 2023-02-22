@@ -8,7 +8,6 @@ import Spinner from "../../components/Spinner";
 const EntryPage = ({ entries, setEntries }) => {
   const { id } = useParams();
   const { entry, comments, setComments, error, loading } = useGetEntryById(id);
-  console.log(comments);
 
   return (
     <section>

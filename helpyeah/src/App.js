@@ -20,12 +20,13 @@ import EntryPage from "./pages/EntryPage";
 import useGetEntries from "./hooks/useGetEntries";
 
 function App() {
-  const { entries, setEntries, loading } = useGetEntries();
+  const { allEntries, entries, setEntries, loading } = useGetEntries();
+
   const { token } = useTokenContext();
   if (loading) return <p>Cargando</p>;
   return (
     <>
-      <Header />
+      <Header allEntries={allEntries} setEntries={setEntries} />
       <main>
         <Routes>
           <Route
@@ -38,7 +39,10 @@ function App() {
             path="/entries/:id"
             element={<EntryPage entries={entries} setEntries={setEntries} />}
           />
-          <Route path="/users/:id" element={<ProfilePage />} />
+          <Route
+            path="/users/:id"
+            element={<ProfilePage entries={entries} setEntries={setEntries} />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -1,26 +1,23 @@
-import Avatar from "../../components/Avatar";
-import getTimeAgo from "../../utils/getTimeAgo";
 import useGetUser from "../../hooks/useGetUsers";
 import { useParams } from "react-router-dom";
+import Profile from "../../components/Profile";
 // import { useState } from "react";
 // import { toast } from "react-toastify";
 
-const ProfilePage = () => {
+const ProfilePage = ({ entries, setEntries }) => {
   const { id } = useParams();
-  const { user } = useGetUser(id);
+  const { user, setUser } = useGetUser(id);
   return (
     <section>
       <h2>Mi perfil</h2>
 
       {Object.values(user).length > 0 && (
-        <article>
-          <Avatar avatar={user.avatar} username={user.username} />
-          <h3>Nombre de usuario: {user.username}</h3>
-          <h4>Email: {user.email}</h4>
-          <h4>Bio: {user.bio}</h4>
-          <p>Se unió {getTimeAgo(new Date(user.registration_date))}</p>
-          <button>EDITAR</button>
-        </article>
+        <Profile
+          entries={entries}
+          setEntries={setEntries}
+          user={user}
+          setUser={setUser}
+        />
       )}
     </section>
   );
