@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import AuthWithOutToken from "../Auth";
 import AuthWithToken from "../LogOut";
 import { useLocation } from "react-router-dom";
+import "./style.css";
 
 const Header = ({ allEntries, setEntries }) => {
   const { token } = useTokenContext();
   const location = useLocation();
 
   return (
-    <header>
+    <header className="mainHeader">
       <h1>
         <Link to={"/"}>HelpYeah</Link>
       </h1>
       {location.pathname === "/" && (
         <select
+          className="categories"
           onChange={(event) => {
             if (event.target.value === "Todas") {
               setEntries(allEntries);
@@ -36,7 +38,7 @@ const Header = ({ allEntries, setEntries }) => {
         </select>
       )}
       {/* Si no hay token, pintamos los enlaces a registro y login */}
-      <nav>
+      <nav className="mainHeaderNav">
         {!token && <AuthWithOutToken />}
         {token && <AuthWithToken />}
       </nav>

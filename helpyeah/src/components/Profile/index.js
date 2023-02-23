@@ -1,6 +1,7 @@
+import "./style.css";
 import Avatar from "../../components/Avatar";
 import getTimeAgo from "../../utils/getTimeAgo";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal";
 import EditUserForm from "../EditUserForm";
 import { useState } from "react";
 
@@ -9,7 +10,7 @@ const Profile = ({ user, setUser, entries, setEntries }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <article>
+    <article className="profileArticle">
       <Avatar avatar={avatar} username={username} />
       <h3>Nombre de usuario: {username}</h3>
       <h4>Email: {email}</h4>

@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
-import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import { useParams } from "react-router-dom";
 const { REACT_APP_BACKEND_PORT } = process.env;
+
 const NewCommentForm = ({ setComments, comments, setShowModal }) => {
   //controlamos los estados de los inputs.
   const [text, setText] = useState("");
@@ -11,18 +11,15 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
   //Asigno useRef en el input correspondiente a files.
   const filesInputRef = useRef();
 
-  //
   const [errorMessage, setErrorMessage] = useState("");
 
   //Llamo al contextToken.
   const { token } = useTokenContext();
 
-  //llamo a useNavigate paa redireccionar al usuario.
-  const navigate = useNavigate();
   return (
     <>
       <form
-        className="newEntryForm"
+        className="newCommentForm"
         onSubmit={async (event) => {
           try {
             event.preventDefault();
@@ -79,7 +76,9 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
           }
         }}
       >
-        <label htmlFor="text">Escribe tu comentario...</label>
+        <label className="writeYourComment" htmlFor="text">
+          Escribe tu comentario...
+        </label>
         <input
           id="text"
           required
@@ -89,10 +88,12 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
           }}
         />
 
-        <label htmlFor="file_name">Adjuntar archivo</label>
+        <label className="fileUpload" htmlFor="file_name">
+          Adjuntar archivo
+        </label>
         <input id="file_name" multiple type="file" ref={filesInputRef} />
 
-        <button>Publicar</button>
+        <button className="postCommentButton">Publicar</button>
       </form>
 
       {errorMessage && <ErrorMessage msg={errorMessage} />}

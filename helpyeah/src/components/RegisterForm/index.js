@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const RegisterForm = () => {
+const RegisterForm = ({ setShowModal }) => {
   //Estos son los estados para controlar los inputs.
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -36,7 +36,12 @@ const RegisterForm = () => {
           if (!res.ok) {
             throw new Error(body.message);
           }
-          navigate("/login");
+
+          //Cerramos la modal
+          setShowModal(false);
+
+          //Colocamos una alerta que indique que el usuario se ha registrado.
+          toast.success("¡Te has registrado!");
         } catch (error) {
           //Si hay error hacemos que aparezca por consola y al user en una alerta.
           console.error(error);
@@ -44,7 +49,9 @@ const RegisterForm = () => {
         }
       }}
     >
-      <label htmlFor="username">User name</label>
+      <label className="username" htmlFor="username">
+        User name
+      </label>
       <input
         id="username"
         value={username}
@@ -54,7 +61,9 @@ const RegisterForm = () => {
         placeholder="username"
       />
 
-      <label htmlFor="email">Email</label>
+      <label className="email" htmlFor="email">
+        Email
+      </label>
       <input
         id="email"
         type="email"
@@ -64,7 +73,9 @@ const RegisterForm = () => {
         }}
       />
 
-      <label htmlFor="password">Password</label>
+      <label className="password" htmlFor="password">
+        Password
+      </label>
       <input
         id="password"
         type="password"
@@ -75,7 +86,7 @@ const RegisterForm = () => {
         placeholder="******"
       />
 
-      <button>Register</button>
+      <button className="registerButton">Register</button>
     </form>
   );
 };

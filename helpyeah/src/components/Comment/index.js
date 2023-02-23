@@ -45,7 +45,7 @@ const Comment = ({
   };
 
   return (
-    <article>
+    <article className="articleComment">
       <p>{text}</p>
 
       <button

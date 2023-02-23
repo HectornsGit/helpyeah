@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const LoginForm = () => {
+const LoginForm = ({ setShowModal }) => {
   //Estados para controlar los inputs.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   //Usamos la funcion setToken del context para poder modificar el estado del token una vez nos logueamos.
   const { setToken } = useTokenContext();
-
-  //Llamamos al hook para luego redireccionar al usuario.
-  const navigate = useNavigate();
 
   const { REACT_APP_BACKEND_PORT } = process.env;
 
@@ -40,8 +36,8 @@ const LoginForm = () => {
       // Cambiamos el estado y metemos el token recogido de la API
       setToken(body.data.token);
 
-      // Redireccionamos al usuario a inicio
-      navigate("/");
+      // cerramos la modal
+      setShowModal(false);
 
       // Colocamos una alerta que diga que el usuario se ha logueado.
       toast.success("¡Te has logueado!");
@@ -61,7 +57,9 @@ const LoginForm = () => {
         login();
       }}
     >
-      <label htmlFor="email">Email</label>
+      <label className="email" htmlFor="email">
+        Email
+      </label>
       <input
         id="email"
         type="email"
@@ -72,7 +70,9 @@ const LoginForm = () => {
         placeholder="mail@mail.com"
       />
 
-      <label htmlFor="password">Contraseña</label>
+      <label className="password" htmlFor="password">
+        Contraseña
+      </label>
       <input
         id="password"
         type="password"
@@ -83,7 +83,7 @@ const LoginForm = () => {
         placeholder="******"
       />
 
-      <button>Iniciar sesion</button>
+      <button className="loginButton">Iniciar sesion</button>
     </form>
   );
 };

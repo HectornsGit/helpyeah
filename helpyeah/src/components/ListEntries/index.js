@@ -2,7 +2,7 @@ import Entry from "../Entry";
 
 const ListEntries = ({ entries, setEntries }) => {
   return (
-    <ul>
+    <ul className="listEntries">
       {entries.map((entry) => {
         return (
           <li key={entry.id}>

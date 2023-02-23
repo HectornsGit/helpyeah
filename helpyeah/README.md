@@ -41,4 +41,3 @@
 - Arreglar el renderin de las entries en la homepage cuando se borran.
 - Nav list de MUI como aplicarlo. https://mui.com/material-ui/api/menu-list/
 - Gestionar que los mensajes aparezcan en la pantalla del cliente.
-- Modal para el registerform y el login.

@@ -1,12 +1,13 @@
-import Modal from "../Modal/Modal";
+import Modal from "../Modal";
 import { useState } from "react";
 import NewEntryForm from "../NewEntryForm";
+import "./style.css";
 
 const Footer = ({ entries, setEntries }) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <footer>
+      <footer className="mainFooter">
         <button
           className="newEntryButton"
           onClick={(event) => {

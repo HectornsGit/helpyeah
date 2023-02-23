@@ -1,0 +1,26 @@
+/*--------------ENTRY-------------------*/
+
+.entry {
+  border: 2px solid green;
+}
+.solved {
+  background-color: cadetblue;
+}
+.unsolved {
+  background-color: rgb(220, 217, 223);
+}
+
+.downloadButton {
+  border: 2px solid salmon;
+}
+
+/*--------------------------------------*/
+
+/*------------ENTRY-FOOTER------------*/
+.entryFooter {
+  border: 2px solid rgb(255, 0, 221);
+}
+.newCommentButton {
+  border: 2px solid rgb(26, 227, 241);
+}
+/*--------------------------------------*/

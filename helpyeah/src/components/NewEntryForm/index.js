@@ -3,13 +3,16 @@ import { useState, useRef } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
+import uploadIcon from "../../assets/images/uploadIcon.svg";
+
 const { REACT_APP_BACKEND_PORT } = process.env;
 
-const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
+const NewEntryForm = ({ setShowModal }) => {
   //Estados para controlar los inputs.
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Otros");
+  const [uploadText, setUploadText] = useState("Sube tu archivo");
   //Estado para el mensaje de error de haber uno y mostrarlo.
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -68,8 +71,6 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
               throw new Error(body.message);
             }
 
-            setEntries([body.data, ...entries]);
-
             //Reseteamos los inputs del formulario.
             setTitle("");
             setDescription("");
@@ -77,13 +78,16 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
 
             //Cerramos la modal cambiando el estado.
             setShowModal(false);
+            navigate("/");
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);
           }
         }}
       >
-        <label htmlFor="title">Título:</label>
+        <label className="entryTitle" htmlFor="title">
+          Título:
+        </label>
         <input
           id="title"
           required
@@ -93,7 +97,9 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
           }}
         />
 
-        <label htmlFor="description">Descripción:</label>
+        <label className="entryDescription" htmlFor="description">
+          Descripción:
+        </label>
         <input
           id="description"
           required
@@ -103,27 +109,41 @@ const NewEntryForm = ({ setShowModal, setEntries, entries }) => {
           }}
         />
 
-        <label htmlFor="file_name">¡Sube tu archivo aquí!:</label>
-        <input id="file_name" multiple type="file" ref={filesInputRef} />
-
-        <label htmlFor="category">Categorias</label>
-
-        <select
-          value={category}
+        <label className="entryUpload" htmlFor="file_name">
+          <img src={uploadIcon} />
+          <p>{uploadText}</p>
+        </label>
+        <input
+          hidden
+          id="file_name"
           onChange={(event) => {
-            setCategory(event.target.value);
+            setUploadText(event.target.value);
           }}
-          id="category"
-        >
-          <option value={"Matemáticas"}>Matemáticas</option>
-          <option value={"Traducciones"}>Traducciones</option>
-          <option value={"Modelado 3D"}>Modelado 3D</option>
-          <option value={"Ilustración"}>Ilustración</option>
-          <option value={"Audio"}>Audio</option>
-          <option value={"Otros"}>Otros</option>
-        </select>
+          multiple
+          type="file"
+          ref={filesInputRef}
+        />
 
-        <button>Publicar</button>
+        <label className="entryCategory" htmlFor="category">
+          Categorias
+          <select
+            className="selectEntryCategory"
+            value={category}
+            onChange={(event) => {
+              setCategory(event.target.value);
+            }}
+            id="category"
+          >
+            <option value={"Matemáticas"}>Matemáticas</option>
+            <option value={"Traducciones"}>Traducciones</option>
+            <option value={"Modelado 3D"}>Modelado 3D</option>
+            <option value={"Ilustración"}>Ilustración</option>
+            <option value={"Audio"}>Audio</option>
+            <option value={"Otros"}>Otros</option>
+          </select>
+        </label>
+
+        <button className="postEntryButton">Publicar</button>
       </form>
 
       {errorMessage && <ErrorMessage msg={errorMessage} />}

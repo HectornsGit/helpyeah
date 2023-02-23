@@ -1,11 +1,12 @@
-import Modal from "../Modal/Modal";
+import Modal from "../Modal";
 import NewCommentForm from "../NewCommentForm";
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { saveAs } from "file-saver";
+import "./style.css";
 
-const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
+const Entry = ({ comments, setComments, entry }) => {
   const { loggedUser, token } = useTokenContext();
   const {
     id: entry_id,
@@ -41,16 +42,11 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
       throw new Error(body.message);
     }
 
-    const filteredEntries = entries.filter((entry) => {
-      return entry.id !== id;
-    });
-
-    setEntries([...filteredEntries]);
     navigate("/");
   };
 
   return (
-    <article className={solved ? "solved" : "unsolved"}>
+    <article className={solved ? "entry solved" : "entry unsolved"}>
       {!id && (
         <Link to={`/entries/${entry.id}`}>
           <header>
@@ -60,15 +56,16 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
         </Link>
       )}
       {id && (
-        <>
+        <article className="user">
           <header>
             <h2>{title}</h2>
           </header>
           <p>{description}</p>
-        </>
+        </article>
       )}
       {id && file_name && (
         <button
+          className="downloadButton"
           onClick={(e) => {
             saveAs(
               `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
@@ -82,7 +79,7 @@ const Entry = ({ comments, setComments, entry, setEntries, entries }) => {
 
       <p>{category}</p>
 
-      <footer>
+      <footer className="entryFooter">
         <Link to={`/users/${user_id}`}>
           <ul>
             <li>
