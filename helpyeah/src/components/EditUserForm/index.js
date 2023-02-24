@@ -12,7 +12,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
 
   const { REACT_APP_BACKEND_PORT } = process.env;
   const navigate = useNavigate();
-  const { token, loggedUser } = useTokenContext();
+  const { token } = useTokenContext();
 
   return (
     <form
@@ -59,22 +59,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
             throw new Error(body.message);
           }
           setUser(body.data);
-          const updatedEntries = entries.map((entry) => {
-            return entry.user_id === loggedUser.id
-              ? {
-                  id: entry.id,
-                  title: entry.title,
-                  description: entry.description,
-                  file_name: entry.file_name,
-                  category: entry.category,
-                  username: username,
-                  solved: entry.solved,
-                  avatar: body.data.avatar,
-                  user_id: loggedUser.id,
-                }
-              : entry;
-          });
-          setEntries([...updatedEntries]);
+
           setShowModal(false);
         } catch (error) {
           //Si hay error hacemos que aparezca por consola y al user en una alerta.

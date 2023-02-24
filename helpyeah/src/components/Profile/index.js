@@ -5,7 +5,7 @@ import Modal from "../Modal";
 import EditUserForm from "../EditUserForm";
 import { useState } from "react";
 
-const Profile = ({ user, setUser, entries, setEntries }) => {
+const Profile = ({ user, setUser }) => {
   const { avatar, username, email, bio, registration_date } = user;
   const [showModal, setShowModal] = useState(false);
 
@@ -32,8 +32,6 @@ const Profile = ({ user, setUser, entries, setEntries }) => {
             setShowModal={setShowModal}
             setUser={setUser}
             user={user}
-            entries={entries}
-            setEntries={setEntries}
           />
         </Modal>
       )}

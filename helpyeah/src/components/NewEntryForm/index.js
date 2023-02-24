@@ -78,7 +78,7 @@ const NewEntryForm = ({ setShowModal }) => {
 
             //Cerramos la modal cambiando el estado.
             setShowModal(false);
-            navigate("/");
+            navigate(`/entries/${body.data.id}`);
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);

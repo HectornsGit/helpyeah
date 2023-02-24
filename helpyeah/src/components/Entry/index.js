@@ -5,11 +5,11 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { saveAs } from "file-saver";
 import "./style.css";
+import SolvedSwitch from "../SolvedSwitch";
 
 const Entry = ({ comments, setComments, entry }) => {
   const { loggedUser, token } = useTokenContext();
   const {
-    id: entry_id,
     title,
     description,
     file_name,
@@ -20,11 +20,12 @@ const Entry = ({ comments, setComments, entry }) => {
     user_id,
   } = entry;
   const [showModal, setShowModal] = useState(false);
+  const [checked, setChecked] = useState(solved);
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env;
 
   const navigate = useNavigate();
-
+  console.log(solved);
   const deleteEntry = async () => {
     const res = await fetch(
       `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
@@ -46,7 +47,7 @@ const Entry = ({ comments, setComments, entry }) => {
   };
 
   return (
-    <article className={solved ? "entry solved" : "entry unsolved"}>
+    <article className="entry">
       {!id && (
         <Link to={`/entries/${entry.id}`}>
           <header>
@@ -59,6 +60,16 @@ const Entry = ({ comments, setComments, entry }) => {
         <article className="user">
           <header>
             <h2>{title}</h2>
+            <ul>
+              <li>{checked ? "Resuelto" : "Por resolver"}</li>
+              <li>
+                <SolvedSwitch
+                  setChecked={setChecked}
+                  checked={checked}
+                  user_id={user_id}
+                />
+              </li>
+            </ul>
           </header>
           <p>{description}</p>
         </article>

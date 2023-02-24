@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useTokenContext } from "../../contexts/TokenContext";
 
-const ProfilePage = ({ entries, setEntries }) => {
+const ProfilePage = () => {
   const { id } = useParams();
   const { user, setUser } = useGetUser(id);
   const { token } = useTokenContext();
@@ -16,12 +16,7 @@ const ProfilePage = ({ entries, setEntries }) => {
         <h2>Mi perfil</h2>
 
         {Object.values(user).length > 0 && (
-          <Profile
-            entries={entries}
-            setEntries={setEntries}
-            user={user}
-            setUser={setUser}
-          />
+          <Profile user={user} setUser={setUser} />
         )}
       </section>
       {token && <Footer />}
