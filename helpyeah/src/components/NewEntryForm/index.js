@@ -86,7 +86,7 @@ const NewEntryForm = ({ setShowModal }) => {
         }}
       >
         <label className="entryTitle" htmlFor="title">
-          Título:
+          ¿Cuál es tu duda?
         </label>
         <input
           id="title"
@@ -98,9 +98,9 @@ const NewEntryForm = ({ setShowModal }) => {
         />
 
         <label className="entryDescription" htmlFor="description">
-          Descripción:
+          Cuéntanos más...
         </label>
-        <input
+        <textarea
           id="description"
           required
           value={description}
@@ -110,8 +110,12 @@ const NewEntryForm = ({ setShowModal }) => {
         />
 
         <label className="entryUpload" htmlFor="file_name">
-          <img src={uploadIcon} />
-          <p>{uploadText}</p>
+          <img src={uploadIcon} alt="descarga" />
+          <p>
+            {uploadText.length <= 30
+              ? uploadText
+              : uploadText.substring(0, 30) + "..."}
+          </p>
         </label>
         <input
           hidden

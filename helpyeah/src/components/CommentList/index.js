@@ -2,6 +2,7 @@ import "./style.css";
 import Comment from "../Comment";
 
 const CommentList = ({ comments, setComments }) => {
+  //Componente que recibe los comentarios y los renderiza.
   return (
     <ul className="commentList">
       {comments.map((comment) => {

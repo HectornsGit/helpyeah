@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { useTokenContext } from "../../contexts/TokenContext";
 import "./style.css";
 
+//Componente que muestra el avatar del usuario deseado, recibe un nombre de usuario y su avatar.
 const Avatar = ({ username, avatar }) => {
   const { REACT_APP_BACKEND_PORT } = process.env;
   return (

@@ -3,8 +3,9 @@ import { useState } from "react";
 import NewEntryForm from "../NewEntryForm";
 import "./style.css";
 
+//Componente del footer principal.
 const Footer = ({ entries, setEntries }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false); //Estado que controla la modal el formulario de crear entradas.
   return (
     <>
       <footer className="mainFooter">

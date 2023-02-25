@@ -33,6 +33,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
           formData.set("email", email);
           formData.set("bio", bio);
 
+          //Recorremos los archivos si es que hay y actualizamos el avatar.
           if (files.length) {
             for (const file of files) {
               formData.set("avatar", file);
@@ -58,8 +59,10 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
           if (!res.ok) {
             throw new Error(body.message);
           }
+          //Actualizamos el estado del usuario para que se renderice con la información nueva.
           setUser(body.data);
 
+          //Cerramos la modal.
           setShowModal(false);
         } catch (error) {
           //Si hay error hacemos que aparezca por consola y al user en una alerta.

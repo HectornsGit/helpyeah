@@ -6,7 +6,9 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import { saveAs } from "file-saver";
 import "./style.css";
 import SolvedSwitch from "../SolvedSwitch";
+import { toast } from "react-toastify";
 
+//Componente de las entries.
 const Entry = ({ comments, setComments, entry }) => {
   const { loggedUser, token } = useTokenContext();
   const {
@@ -19,74 +21,92 @@ const Entry = ({ comments, setComments, entry }) => {
     avatar,
     user_id,
   } = entry;
-  const [showModal, setShowModal] = useState(false);
-  const [checked, setChecked] = useState(solved);
+  const [showModal, setShowModal] = useState(false); //Estado que maneja la modal del formulario de los comentarios.
+  const [checked, setChecked] = useState(solved); //Estado para el switch de "resuelo"
   const { id } = useParams();
-  const { REACT_APP_BACKEND_PORT } = process.env;
+  const { REACT_APP_BACKEND_PORT } = process.env; //Puerto donde alojamos el servidor del backend.
 
-  const navigate = useNavigate();
-  console.log(solved);
+  const navigate = useNavigate(); //Esto nos permite redirigir a otras rutas.
+
+  //Función para borrar las entradas.
   const deleteEntry = async () => {
-    const res = await fetch(
-      `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: token,
-        },
+    try {
+      //Fetch al back con método delete y el token del usuario.
+      const res = await fetch(
+        `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      //Guardamos la respuesta en una variable.
+      const body = await res.json();
+
+      //Si algo falla lanzamos un error.
+      if (!res.ok) {
+        throw new Error(body.message);
       }
-    );
 
-    const body = await res.json();
-
-    if (!res.ok) {
-      throw new Error(body.message);
+      navigate("/");
+    } catch (error) {
+      //Mostramos el error por pantalla.
+      toast(error.message);
     }
-
-    navigate("/");
   };
 
   return (
     <article className="entry">
-      {!id && (
-        <Link to={`/entries/${entry.id}`}>
-          <header>
-            <h2>{title}</h2>
-          </header>
-          <p>{description}</p>
-        </Link>
-      )}
-      {id && (
-        <article className="user">
-          <header>
-            <h2>{title}</h2>
-            <ul>
-              <li>{checked ? "Resuelto" : "Por resolver"}</li>
-              <li>
-                <SolvedSwitch
-                  setChecked={setChecked}
-                  checked={checked}
-                  user_id={user_id}
-                />
-              </li>
-            </ul>
-          </header>
-          <p>{description}</p>
-        </article>
-      )}
-      {id && file_name && (
-        <button
-          className="downloadButton"
-          onClick={(e) => {
-            saveAs(
-              `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
-              file_name
-            );
-          }}
-        >
-          DESCARGA
-        </button>
-      )}
+      {
+        //Si estamos en la página principal mostramos solo esto.
+        !id && (
+          <Link to={`/entries/${entry.id}`}>
+            <header>
+              <h2>{title}</h2>
+            </header>
+            <p>{description}</p>
+          </Link>
+        )
+      }
+      {
+        //Si nos encontramos en la página de la entry, añadimos el switch para decidir si está resuelta o no.
+        id && (
+          <article className="user">
+            <header>
+              <h2>{title}</h2>
+              <ul>
+                <li>{checked ? "Resuelto" : "Por resolver"}</li>
+                <li>
+                  <SolvedSwitch
+                    setChecked={setChecked}
+                    checked={checked}
+                    user_id={user_id}
+                  />
+                </li>
+              </ul>
+            </header>
+            <p>{description}</p>
+          </article>
+        )
+      }
+      {
+        //Si tiene un archivo y estamos en la página de la entry, mostramos el botón de descarga.
+        id && file_name && (
+          <button
+            className="downloadButton"
+            onClick={(e) => {
+              saveAs(
+                `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
+                file_name
+              );
+            }}
+          >
+            DESCARGA
+          </button>
+        )
+      }
 
       <p>{category}</p>
 
@@ -105,44 +125,53 @@ const Entry = ({ comments, setComments, entry }) => {
           </ul>
         </Link>
 
-        {id && (
-          <ul>
-            <li>
-              <button
-                className="newCommentButton"
-                onClick={(event) => {
-                  if (!token) {
-                    navigate("/login");
-                  }
-                  setShowModal(true);
-                }}
-              >
-                Comentar
-              </button>
-            </li>
-            {loggedUser.id === user_id && (
+        {
+          //Si estamos en la página de la entry mostramos el botón de comentar.
+          id && (
+            <ul>
               <li>
                 <button
+                  className="newCommentButton"
                   onClick={(event) => {
-                    deleteEntry();
+                    if (!token) {
+                      navigate("/login");
+                    }
+                    setShowModal(true);
                   }}
                 >
-                  Eliminar
+                  Comentar
                 </button>
               </li>
-            )}
-          </ul>
-        )}
+              {
+                //Si además fuésemos el usuario que la publicó, mostramos el de eliminar.
+                loggedUser.id === user_id && (
+                  <li>
+                    <button
+                      onClick={(event) => {
+                        deleteEntry();
+                      }}
+                    >
+                      Eliminar
+                    </button>
+                  </li>
+                )
+              }
+            </ul>
+          )
+        }
       </footer>
-      {showModal && (
-        <Modal setShowModal={setShowModal}>
-          <NewCommentForm
-            setShowModal={setShowModal}
-            setComments={setComments}
-            comments={comments}
-          />
-        </Modal>
-      )}
+      {
+        //Modal que con el formulario de los comentarios.
+        showModal && (
+          <Modal setShowModal={setShowModal}>
+            <NewCommentForm
+              setShowModal={setShowModal}
+              setComments={setComments}
+              comments={comments}
+            />
+          </Modal>
+        )
+      }
     </article>
   );
 };
