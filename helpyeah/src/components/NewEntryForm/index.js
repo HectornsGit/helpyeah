@@ -110,7 +110,7 @@ const NewEntryForm = ({ setShowModal }) => {
         />
 
         <label className="entryUpload" htmlFor="file_name">
-          <img src={uploadIcon} alt="descarga" />
+          <img src={uploadIcon} alt="icono de subir archivo" />
           <p>
             {uploadText.length <= 30
               ? uploadText
@@ -130,22 +130,22 @@ const NewEntryForm = ({ setShowModal }) => {
 
         <label className="entryCategory" htmlFor="category">
           Categorias
-          <select
-            className="selectEntryCategory"
-            value={category}
-            onChange={(event) => {
-              setCategory(event.target.value);
-            }}
-            id="category"
-          >
-            <option value={"Matemáticas"}>Matemáticas</option>
-            <option value={"Traducciones"}>Traducciones</option>
-            <option value={"Modelado 3D"}>Modelado 3D</option>
-            <option value={"Ilustración"}>Ilustración</option>
-            <option value={"Audio"}>Audio</option>
-            <option value={"Otros"}>Otros</option>
-          </select>
         </label>
+
+        <select
+          value={category}
+          onChange={(event) => {
+            setCategory(event.target.value);
+          }}
+          id="categories"
+        >
+          <option value={"Matemáticas"}>Matemáticas</option>
+          <option value={"Traducciones"}>Traducciones</option>
+          <option value={"Modelado 3D"}>Modelado 3D</option>
+          <option value={"Ilustración"}>Ilustración</option>
+          <option value={"Audio"}>Audio</option>
+          <option value={"Otros"}>Otros</option>
+        </select>
 
         <button className="postEntryButton">Publicar</button>
       </form>

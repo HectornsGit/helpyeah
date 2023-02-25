@@ -1,3 +1,5 @@
+import "./style.css";
+import uploadIcon from "../../assets/images/uploadIcon.svg";
 import { useState, useRef } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
 import ErrorMessage from "../ErrorMessage";
@@ -7,6 +9,7 @@ const { REACT_APP_BACKEND_PORT } = process.env;
 const NewCommentForm = ({ setComments, comments, setShowModal }) => {
   //controlamos los estados de los inputs.
   const [text, setText] = useState("");
+  const [uploadText, setUploadText] = useState("Sube tu archivo");
   const { id } = useParams();
   //Asigno useRef en el input correspondiente a files.
   const filesInputRef = useRef();
@@ -79,7 +82,7 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
         <label className="writeYourComment" htmlFor="text">
           Escribe tu comentario...
         </label>
-        <input
+        <textarea
           id="text"
           required
           value={text}
@@ -89,9 +92,23 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
         />
 
         <label className="fileUpload" htmlFor="file_name">
-          Adjuntar archivo
+          <img src={uploadIcon} alt="icono de subir archivo" />
+          <p>
+            {uploadText.length <= 30
+              ? uploadText
+              : uploadText.substring(0, 30) + "..."}
+          </p>
         </label>
-        <input id="file_name" multiple type="file" ref={filesInputRef} />
+        <input
+          hidden
+          id="file_name"
+          onChange={(event) => {
+            setUploadText(event.target.value);
+          }}
+          multiple
+          type="file"
+          ref={filesInputRef}
+        />
 
         <button className="postCommentButton">Publicar</button>
       </form>

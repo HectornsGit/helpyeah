@@ -1,4 +1,5 @@
 import "./style.css";
+import uploadIcon from "../../assets/images/uploadIcon.svg";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,6 +9,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
+  const [uploadText, setUploadText] = useState("Sube tu avatar");
   const filesInputRef = useRef();
 
   const { REACT_APP_BACKEND_PORT } = process.env;
@@ -16,7 +18,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
 
   return (
     <form
-      className="registerForm"
+      className="editUserForm"
       onSubmit={async (event) => {
         try {
           //cancelamos la accion por defecto del form.
@@ -71,18 +73,38 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
         }
       }}
     >
-      <label htmlFor="avatar">Imagen</label>
-      <input id="avatar" multiple type="file" ref={filesInputRef} />
-      <label htmlFor="username">User name</label>
+      <label id="iconoDelAvatar" htmlFor="avatar">
+        <img src={uploadIcon} alt="icono de subir archivo" />
+        <p>
+          {uploadText.length <= 30
+            ? uploadText
+            : uploadText.substring(0, 30) + "..."}
+        </p>
+      </label>
+      <input
+        hidden
+        onChange={(event) => {
+          setUploadText(event.target.value);
+        }}
+        id="avatar"
+        multiple
+        type="file"
+        ref={filesInputRef}
+      />
+      <label hidden htmlFor="username">
+        User name
+      </label>
       <input
         id="username"
         value={username}
         onChange={(event) => {
           setUsername(event.target.value);
         }}
-        placeholder="username"
+        placeholder="Nombre de usuario"
       />
-      <label htmlFor="email">Email</label>
+      <label hidden htmlFor="email">
+        Email
+      </label>
       <input
         id="email"
         type="email"
@@ -90,17 +112,20 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
         onChange={(event) => {
           setEmail(event.target.value);
         }}
+        placeholder="Correo electrónico"
       />
-      <label htmlFor="bio">Bio</label>
+      <label hidden htmlFor="bio">
+        Bio
+      </label>
       <input
         id="bio"
         value={bio}
         onChange={(event) => {
           setBio(event.target.value);
         }}
-        placeholder="bio"
+        placeholder="Biografía"
       />
-      <button>Guardar Cambios</button>
+      <button className="saveChangesButton">Guardar cambios</button>
     </form>
   );
 };

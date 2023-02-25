@@ -49,8 +49,8 @@ const RegisterForm = ({ setShowModal }) => {
         }
       }}
     >
-      <label className="username" htmlFor="username">
-        User name
+      <label hidden className="username" htmlFor="username">
+        Username
       </label>
       <input
         id="username"
@@ -58,10 +58,10 @@ const RegisterForm = ({ setShowModal }) => {
         onChange={(event) => {
           setUsername(event.target.value);
         }}
-        placeholder="username"
+        placeholder="Nombre de usuario"
       />
 
-      <label className="email" htmlFor="email">
+      <label hidden className="email" htmlFor="email">
         Email
       </label>
       <input
@@ -71,9 +71,10 @@ const RegisterForm = ({ setShowModal }) => {
         onChange={(event) => {
           setEmail(event.target.value);
         }}
+        placeholder="Correo electrónico"
       />
 
-      <label className="password" htmlFor="password">
+      <label hidden className="password" htmlFor="password">
         Password
       </label>
       <input
@@ -83,7 +84,7 @@ const RegisterForm = ({ setShowModal }) => {
         onChange={(event) => {
           setPassword(event.target.value);
         }}
-        placeholder="******"
+        placeholder="Contraseña"
       />
 
       <button className="registerButton">Register</button>

@@ -1,0 +1,78 @@
+/* --------------------------------------------------------------------- */
+/* -----------------------Dimensiones base Iphone 12pro------------------------ */
+/* --------------------------------------------------------------------- */
+
+/* ---------------------Comment Form--------------------------- */
+.newCommentForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+/* ------------------------Todos los inputs------------------------- */
+input {
+  border-style: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.161);
+  width: 100%;
+}
+
+/* ------------------------Label del texto del comentario------------------------- */
+
+.writeYourComment {
+  min-height: 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* -----------------------Texto del comentario - textarea------------------------ */
+#text {
+  align-self: center;
+  min-height: 250px;
+  min-width: 100%;
+  vertical-align: text-top;
+  resize: none;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.161);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* -----------------------fileUpload label------------------------ */
+
+.fileUpload {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+/* ---------------Parrafo del fileUpload / nombre del archivo----------------- */
+.fileUpload p {
+  align-self: flex-end;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  word-break: break-all;
+}
+
+/* -----------------------Img upload------------------------ */
+.fileUpload img {
+  max-height: 40px;
+}
+
+/* -----------------------Boton para publicar------------------------ */
+.postCommentButton {
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.8rem 1.5rem;
+  align-self: center;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+/* -----------------------Simbolo de upload (SVG)----------------------- */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}

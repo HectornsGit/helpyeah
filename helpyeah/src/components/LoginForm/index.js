@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { toast } from "react-toastify";
@@ -57,7 +58,7 @@ const LoginForm = ({ setShowModal }) => {
         login();
       }}
     >
-      <label className="email" htmlFor="email">
+      <label hidden className="email" htmlFor="email">
         Email
       </label>
       <input
@@ -70,7 +71,7 @@ const LoginForm = ({ setShowModal }) => {
         placeholder="mail@mail.com"
       />
 
-      <label className="password" htmlFor="password">
+      <label hidden className="password" htmlFor="password">
         Contraseña
       </label>
       <input
@@ -80,7 +81,7 @@ const LoginForm = ({ setShowModal }) => {
         onChange={(event) => {
           setPassword(event.target.value);
         }}
-        placeholder="******"
+        placeholder="Contraseña"
       />
 
       <button className="loginButton">Iniciar sesion</button>

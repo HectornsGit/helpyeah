@@ -1,19 +1,38 @@
+/* --------------------------------------------------------------------- */
+/* -----------------------Dimensiones base Iphone 12pro------------------------ */
+/* --------------------------------------------------------------------- */
+
+/* ---------------------Entry Form--------------------------- */
 .newEntryForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.5rem;
   width: 100%;
   height: 100%;
   padding: 10px;
 }
-
+/* ------------------------Todos los inputs------------------------- */
 input {
   border-style: none;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.381);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.161);
   width: 100%;
 }
+
+/* ------------------------Title label------------------------- */
+
+.entryTitle {
+  min-height: 25px;
+}
+
+/* ------------------------Title input------------------------- */
+
+#title {
+  min-height: 25px;
+  padding: 8px;
+}
+
 /* -----------------------Description input------------------------ */
 #description {
   align-self: center;
@@ -22,8 +41,11 @@ input {
   vertical-align: text-top;
   resize: none;
   border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.161);
   padding: 10px;
 }
+
+/* -----------------------Upload label------------------------ */
 
 .entryUpload {
   display: flex;
@@ -32,41 +54,49 @@ input {
   width: 100%;
 }
 
+/* ---------------Parrafo del Upload / nombre del archivo----------------- */
 .entryUpload p {
   align-self: flex-end;
   padding-bottom: 5px;
+  padding-left: 5px;
   word-break: break-all;
 }
 
-.entryCategory {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  gap: 8px;
+/* -----------------------Img upload------------------------ */
+.entryUpload img {
+  max-height: 40px;
 }
 
-.entryCategory select {
-  appearance: none;
+/* -----------------------label de las categorias------------------------ */
+
+.entryCategory {
+  min-height: 25px;
+}
+
+/* -----------------------select de las categorias------------------------ */
+#categories {
+  position: relative;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.161);
   border-radius: 0.25em;
-  padding: 0.25em 0.5em;
+  padding: 6px 8px;
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
   width: 100%;
 }
 
+/* -----------------------Boton para publicar------------------------ */
 .postEntryButton {
   border: none;
   border-radius: 0.25em;
-  padding: 0.8em 1.5em;
+  padding: 0.8rem 1.5rem;
   align-self: center;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
+/* -----------------------Simbolo de upload (SVG)----------------------- */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
