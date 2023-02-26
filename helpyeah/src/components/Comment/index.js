@@ -49,10 +49,11 @@ const Comment = ({
   };
 
   return (
-    <article className="articleComment">
+    <article className="comment">
       <p>{text}</p>
 
       <button
+        className={"downloadButton"}
         onClick={(e) => {
           //Esta función nos permite descargar el archivo del backend, aunque sea una imagen.
           saveAs(
@@ -60,9 +61,7 @@ const Comment = ({
             file_name
           );
         }}
-      >
-        DESCARGA
-      </button>
+      />
       <p>{creation_date}</p>
       <footer>
         <ul>

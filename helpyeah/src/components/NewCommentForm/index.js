@@ -79,7 +79,7 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
           }
         }}
       >
-        <label className="writeYourComment" htmlFor="text">
+        <label hidden className="writeYourComment" htmlFor="text">
           Escribe tu comentario...
         </label>
         <textarea
@@ -89,6 +89,7 @@ const NewCommentForm = ({ setComments, comments, setShowModal }) => {
           onChange={(event) => {
             setText(event.target.value);
           }}
+          placeholder="Escribe tu comentario..."
         />
 
         <label className="fileUpload" htmlFor="file_name">

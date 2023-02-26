@@ -62,7 +62,7 @@ const LoginForm = ({ setShowModal }) => {
         Email
       </label>
       <input
-        id="email"
+        id="emailLogin"
         type="email"
         value={email}
         onChange={(event) => {
@@ -75,7 +75,7 @@ const LoginForm = ({ setShowModal }) => {
         Contraseña
       </label>
       <input
-        id="password"
+        id="passwordLogin"
         type="password"
         value={password}
         onChange={(event) => {

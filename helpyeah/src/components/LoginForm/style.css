@@ -6,7 +6,7 @@
 .loginForm {
   display: flex;
   flex-direction: column;
-  justify-content: space-start;
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 0.5rem;
   width: 100%;
@@ -18,19 +18,18 @@
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.161);
   border-radius: 0.25em;
-  min-height: 25px;
+  min-height: 40px;
   padding: 8px;
 }
 
 /* ------------------------Username input------------------------- */
-#email {
-  margin-top: 15px;
-  margin-bottom: 10px;
+#emailLogin {
+  margin-bottom: 5px;
 }
 
 /* ------------------------Email input------------------------- */
-#password {
-  margin-bottom: 10px;
+#passwordLogin {
+  margin-bottom: 5px;
 }
 
 /* -----------------------Boton para registrarse------------------------ */
@@ -40,4 +39,5 @@
   padding: 0.8rem 1.5rem;
   align-self: center;
   font-weight: bold;
+  margin-bottom: -5px;
 }

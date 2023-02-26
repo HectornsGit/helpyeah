@@ -1,5 +1,6 @@
 .mainHeader {
-  border: 2px solid red;
+  border-bottom: 2px solid var(--main-border-color);
+  display: flex;
 }
 
 /*------SELECTOR DE CATEGORÍAS--------*/
@@ -15,5 +16,4 @@
 
 /*-----------MAIN HEADER NAV---------------*/
 .mainHeaderNav {
-  border: 2px solid rgb(111, 0, 255);
 } /*----------------------------------------*/

@@ -1,3 +1,4 @@
+/* ----------Div modal fondo -------- */
 .modal {
   position: fixed;
   top: 0;
@@ -9,6 +10,7 @@
   place-content: center;
 }
 
+/* ----------modal container  -------- */
 .modal .modalContainer {
   margin: 4rem;
   padding: 1rem;
@@ -22,4 +24,24 @@
   -webkit-box-shadow: 1px 4px 15px -1px rgba(0, 0, 0, 0.18);
   -moz-box-shadow: 1px 4px 15px -1px rgba(0, 0, 0, 0.18);
   box-shadow: 1px 4px 15px -1px rgba(0, 0, 0, 0.18);
+}
+
+/* ----------Dmodal de editUserForm -------- */
+.profile-modal .modalContainer {
+  max-height: 350px;
+}
+
+/* ----------Modal de regiterForm-------- */
+.register-modal .modalContainer {
+  max-height: 280px;
+}
+
+/* ----------Modal de loginForm -------- */
+.login-modal .modalContainer {
+  max-height: 200px;
+  max-width: 300px;
+}
+/* ----------Modal de comments-------- */
+.comments-modal .modalContainer {
+  max-height: 450px;
 }

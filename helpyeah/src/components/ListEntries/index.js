@@ -1,5 +1,5 @@
 import Entry from "../Entry";
-
+import "./style.css";
 const ListEntries = ({ entries, setEntries }) => {
   return (
     <ul className="listEntries">

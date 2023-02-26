@@ -30,13 +30,13 @@ input {
 /* -----------------------Texto del comentario - textarea------------------------ */
 #text {
   align-self: center;
-  min-height: 250px;
+  min-height: 280px;
   min-width: 100%;
   vertical-align: text-top;
   resize: none;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.161);
-  padding: 10px;
+  padding: 20px 15px;
   margin-bottom: 10px;
 }
 

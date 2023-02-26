@@ -1,7 +1,20 @@
 .mainFooter {
-  border: 2px solid red;
+  border-top: 1px solid var(--main-border-color);
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+  position: fixed;
+  width: 100vw;
+  bottom: 0px;
 }
 
 .newEntryButton {
-  border: 2px solid blue;
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/images/add_box_FILL0_wght400_GRAD0_opsz48.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5px;
+  min-width: 45px;
+  min-height: 45px;
 }

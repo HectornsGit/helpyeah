@@ -35,13 +35,13 @@ const AuthWithOutToken = () => {
       </li>
       {/*------------------MODALES---------------------------*/}
       {showModal && (
-        <Modal setShowModal={setShowModal}>
+        <Modal className="register-modal" setShowModal={setShowModal}>
           <RegisterForm setShowModal={setShowModal} />
         </Modal>
       )}
 
       {showModalOne && (
-        <Modal setShowModal={setShowModalOne}>
+        <Modal className="login-modal" setShowModal={setShowModalOne}>
           <LoginForm setShowModal={setShowModalOne} />
         </Modal>
       )}

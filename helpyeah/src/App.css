@@ -7,10 +7,18 @@
   text-decoration: none;
 }
 
+html {
+  --main-border-color: rgba(43, 43, 43, 0.3);
+}
+
 .App {
   text-align: center;
   font-family: "Heebo", Arial, Helvetica, sans-serif;
 }
 img {
   max-width: 100px;
+}
+
+a:visited {
+  color: black;
 }

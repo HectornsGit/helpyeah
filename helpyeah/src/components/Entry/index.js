@@ -58,7 +58,7 @@ const Entry = ({ comments, setComments, entry }) => {
   };
 
   return (
-    <article className="entry">
+    <article className={`entry ${!id ? "entryHomePage" : ""}`}>
       {
         //Si estamos en la página principal mostramos solo esto.
         !id && (
@@ -76,15 +76,18 @@ const Entry = ({ comments, setComments, entry }) => {
           <article className="user">
             <header>
               <h2>{title}</h2>
-              <ul>
-                <li>{checked ? "Resuelto" : "Por resolver"}</li>
-                <li>
+              <ul className="solvedbutton">
+                <li className="switch">
                   <SolvedSwitch
                     setChecked={setChecked}
                     checked={checked}
                     user_id={user_id}
                   />
                 </li>
+                <li className="textoChecked">
+                  {checked ? "Resuelto" : "Por resolver"}
+                </li>
+                <li className="parrafoCategoria">{category}</li>
               </ul>
             </header>
             <p>{description}</p>
@@ -102,17 +105,13 @@ const Entry = ({ comments, setComments, entry }) => {
                 file_name
               );
             }}
-          >
-            DESCARGA
-          </button>
+          ></button>
         )
       }
 
-      <p>{category}</p>
-
       <footer className="entryFooter">
         <Link to={`/users/${user_id}`}>
-          <ul>
+          <ul className="ulUsernameAndAvatar">
             <li>
               <img
                 src={`http://localhost:${REACT_APP_BACKEND_PORT}/${avatar}`}
@@ -128,7 +127,7 @@ const Entry = ({ comments, setComments, entry }) => {
         {
           //Si estamos en la página de la entry mostramos el botón de comentar.
           id && (
-            <ul>
+            <ul className="delete-comment-items">
               <li>
                 <button
                   className="newCommentButton"
@@ -138,21 +137,18 @@ const Entry = ({ comments, setComments, entry }) => {
                     }
                     setShowModal(true);
                   }}
-                >
-                  Comentar
-                </button>
+                ></button>
               </li>
               {
                 //Si además fuésemos el usuario que la publicó, mostramos el de eliminar.
                 loggedUser.id === user_id && (
                   <li>
                     <button
+                      className="deleteEntryButton"
                       onClick={(event) => {
                         deleteEntry();
                       }}
-                    >
-                      Eliminar
-                    </button>
+                    ></button>
                   </li>
                 )
               }
@@ -163,7 +159,7 @@ const Entry = ({ comments, setComments, entry }) => {
       {
         //Modal que con el formulario de los comentarios.
         showModal && (
-          <Modal setShowModal={setShowModal}>
+          <Modal className="comments-modal" setShowModal={setShowModal}>
             <NewCommentForm
               setShowModal={setShowModal}
               setComments={setComments}

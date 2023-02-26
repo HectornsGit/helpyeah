@@ -92,10 +92,10 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
         ref={filesInputRef}
       />
       <label hidden htmlFor="username">
-        User name
+        Username
       </label>
       <input
-        id="username"
+        id="usernameProfile"
         value={username}
         onChange={(event) => {
           setUsername(event.target.value);
@@ -106,7 +106,7 @@ const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
         Email
       </label>
       <input
-        id="email"
+        id="emailProfile"
         type="email"
         value={email}
         onChange={(event) => {

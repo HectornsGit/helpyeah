@@ -1,9 +1,9 @@
 import "./style.css";
 
-const Modal = ({ children, setShowModal }) => {
+const Modal = ({ className, children, setShowModal }) => {
   return (
     <div
-      className="modal"
+      className={`modal ${className ? className : ""}`}
       onClick={(event) => {
         //cambiamos el estado ShowModal a false para cerrar el modal.
         //Utilizamos .closest para seleccionar el elemento o el padre más cercano que coincida con el párametro que se le pasa.

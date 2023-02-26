@@ -14,9 +14,7 @@ const Footer = ({ entries, setEntries }) => {
           onClick={(event) => {
             setShowModal(true);
           }}
-        >
-          Nueva Entrada
-        </button>
+        />
       </footer>
 
       {showModal && (

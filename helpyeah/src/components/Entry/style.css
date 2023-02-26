@@ -1,7 +1,9 @@
 /*--------------ENTRY-------------------*/
 
 .entry {
-  border: 2px solid green;
+  padding: 20px 5px 5px 5px;
+  list-style: none;
+  border-bottom: 1px solid rgba(43, 43, 43, 0.3);
 }
 .solved {
   background-color: cadetblue;
@@ -10,17 +12,100 @@
   background-color: rgb(220, 217, 223);
 }
 
+/* -------------Download button---------------------- */
 .downloadButton {
-  border: 2px solid salmon;
+  border: none;
+  margin: 0px 5px 0px 0px;
+  background-color: transparent;
+  background-image: url("../../assets/images/download_FILL0_wght400_GRAD0_opsz48.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 40px;
+  min-height: 40px;
 }
 
-/*--------------------------------------*/
+/* -------------Todos los li del header---------------------- */
+header ul li {
+  list-style: none;
+}
+/* -------------contenedor de solvedSwitch---------------------- */
+.user .solvedbutton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+/*-------------------li en el que se ve la categoria de la entry-------------------*/
+.parrafoCategoria {
+  flex-grow: 1;
+  text-align: right;
+}
+
+/*-------------Parrafo en el que se ve la descripcion de la entry-------------------------*/
+.user p {
+  padding: 0px 10px 10px 10px;
+}
+
+/*----------------H2 de la entry----------------------*/
+header h2 {
+  padding-left: 10px;
+}
 
 /*------------ENTRY-FOOTER------------*/
 .entryFooter {
-  border: 2px solid rgb(255, 0, 221);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px 8px 8px 8px;
 }
+
+/*------------------Ul en el que esta el avatar y el username--------------------*/
+.ulUsernameAndAvatar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+}
+
+/*--------------H3 en en el que se encuentra el username------------------------*/
+.ulUsernameAndAvatar li h3 {
+  padding-left: 4px;
+}
+
+/* --------Imagen del avatar del user que creo la entry------------ */
+.entryFooter img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+/*----------------Todos los li dentro del footer----------------------*/
+.entryFooter ul li {
+  list-style: none;
+}
+
+.delete-comment-items {
+  display: flex;
+}
+
+/*---------------Boton para comentar-----------------------*/
 .newCommentButton {
-  border: 2px solid rgb(26, 227, 241);
+  background-image: url("../../assets/images/add_comment_FILL0_wght400_GRAD0_opsz48.svg");
+  min-height: 40px;
+  min-width: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
 }
-/*--------------------------------------*/
+/*--------------Boton de borrar entry------------------------*/
+.deleteEntryButton {
+  background-image: url("../../assets/images/delete_FILL0_wght400_GRAD0_opsz48.svg");
+  min-height: 40px;
+  min-width: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+}

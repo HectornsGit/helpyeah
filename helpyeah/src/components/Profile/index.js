@@ -27,7 +27,7 @@ const Profile = ({ user, setUser }) => {
       </button>
 
       {showModal && (
-        <Modal setShowModal={setShowModal}>
+        <Modal className="profile-modal" setShowModal={setShowModal}>
           <EditUserForm
             setShowModal={setShowModal}
             setUser={setUser}

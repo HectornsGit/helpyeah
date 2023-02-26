@@ -1,6 +1,6 @@
 import { useTokenContext } from "../../contexts/TokenContext";
 import { useNavigate } from "react-router-dom";
-
+import MenuList from "../MenuList";
 const AuthWithToken = () => {
   const { setToken, loggedUser } = useTokenContext();
   const { REACT_APP_BACKEND_PORT } = process.env;
@@ -9,7 +9,8 @@ const AuthWithToken = () => {
   return (
     <>
       {Object.values(loggedUser).length && (
-        <ul>
+        <MenuList avatar={loggedUser.avatar} username={loggedUser.username} />
+        /*         <ul>
           <li>
             <img
               alt={`avatar de ${loggedUser.username}`}
@@ -26,7 +27,7 @@ const AuthWithToken = () => {
               Logout
             </button>
           </li>
-        </ul>
+        </ul> */
       )}
     </>
   );
