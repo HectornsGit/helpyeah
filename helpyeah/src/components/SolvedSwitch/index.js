@@ -27,7 +27,6 @@ export default function SolvedSwitch({ setChecked, checked, user_id }) {
   const { token, loggedUser } = useTokenContext();
 
   const toggleSolved = async () => {
-    console.log(checked);
     const res = await fetch(
       `http://localhost:${REACT_APP_BACKEND_PORT}/entries/${id}`,
       {
@@ -39,7 +38,7 @@ export default function SolvedSwitch({ setChecked, checked, user_id }) {
     );
 
     const body = await res.json();
-    console.log(body);
+
     if (!res.ok) {
       throw new Error(body.message);
     }

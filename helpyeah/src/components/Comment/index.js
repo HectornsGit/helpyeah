@@ -5,22 +5,22 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import Like from "../Like";
 
 //Componente de los comentarios.
-const Comment = ({
-  id,
-  user_id,
-  entry_id,
-  text,
-  file_name,
-  creation_date,
-  setComments,
-  comments,
-  likes,
-  avatar,
-  username,
-}) => {
+const Comment = ({ comment }) => {
   const { REACT_APP_BACKEND_PORT } = process.env; //Variable de entorno que guardar el puerto donde está hosteado el backend.
+  const {
+    id,
+    user_id,
+    entry_id,
+    text,
+    file_name,
+    creation_date,
+    setComments,
+    comments,
+    likes,
+    avatar,
+    username,
+  } = comment;
   const { loggedUser, token } = useTokenContext(); //Usuario actual y token del propio.
-
   // Función para borrar un comentario.
   const deleteComent = async () => {
     const res = await fetch(

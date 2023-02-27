@@ -1,0 +1,52 @@
+.profilePage .mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding-right: 20px;
+}
+
+.profilePage .mainHeader h1 {
+  font-size: 20px;
+}
+
+.profilePage .mainHeaderNav .menuListWithToken .menuList img {
+  width: 35px;
+  height: 35px;
+}
+
+.profilePage .profileArticle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: start;
+  text-align: start;
+  padding-left: 15px;
+  padding-top: 20px;
+}
+
+.profilePage .profileArticle h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.profilePage .profileArticle img.imageAvatar {
+  min-width: 120px;
+  height: 120px;
+}
+
+.profilePage .profileArticle h4 {
+  margin-bottom: 8px;
+}
+
+.profilePage .profileArticle p {
+  margin-bottom: 8px;
+}
+
+.profilePage .profileArticle .editProfile {
+  position: fixed;
+  right: 25px;
+  top: 80px;
+}

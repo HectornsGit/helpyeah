@@ -5,7 +5,7 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import personIcon from "../../assets/images/account_circle_FILL0_wght400_GRAD0_opsz48.svg";
 import logoutIcon from "../../assets/images/logout_FILL0_wght400_GRAD0_opsz48.svg";
-
+import "./style.css";
 const MenuList = ({ avatar, username }) => {
   const { setToken, loggedUser } = useTokenContext(); //SetToken nos permite editar el Token del usuario y loggedUser acceder a su información.
 
@@ -46,7 +46,7 @@ const MenuList = ({ avatar, username }) => {
   };
 
   return (
-    <>
+    <article className="menuList">
       <Avatar avatar={avatar} menuOnClick={handleClick} username={username} />
       <Menu
         open={open}
@@ -61,15 +61,15 @@ const MenuList = ({ avatar, username }) => {
               : handleGoToProfile
           }
         >
-          <img src={personIcon} alt="profile-button" />
+          <img className="profile" src={personIcon} alt="profile-button" />
           Perfil
         </MenuItem>
         <MenuItem onClick={handleLogOut}>
-          <img src={logoutIcon} alt="logout-button" />
+          <img className="logout" src={logoutIcon} alt="logout-button" />
           Logout
         </MenuItem>
       </Menu>
-    </>
+    </article>
   );
 };
 export default MenuList;

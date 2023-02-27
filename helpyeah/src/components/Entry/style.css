@@ -1,7 +1,7 @@
 /*--------------ENTRY-------------------*/
 
 .entry {
-  padding: 20px 5px 5px 5px;
+  padding: 15px 10px 5px 5px;
   list-style: none;
   border-bottom: 1px solid rgba(43, 43, 43, 0.3);
 }
@@ -13,15 +13,20 @@
 }
 
 /* -------------Download button---------------------- */
+section .entryDownload {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
 .downloadButton {
   border: none;
-  margin: 0px 5px 0px 0px;
+  margin: 0px 5px 0px 5px;
   background-color: transparent;
   background-image: url("../../assets/images/download_FILL0_wght400_GRAD0_opsz48.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 /* -------------Todos los li del header---------------------- */
@@ -34,6 +39,7 @@ header ul li {
   align-items: center;
   justify-content: flex-end;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 /*-------------------li en el que se ve la categoria de la entry-------------------*/
@@ -45,6 +51,7 @@ header ul li {
 /*-------------Parrafo en el que se ve la descripcion de la entry-------------------------*/
 .user p {
   padding: 0px 10px 10px 10px;
+  margin-bottom: 20px;
 }
 
 /*----------------H2 de la entry----------------------*/
@@ -65,12 +72,14 @@ header h2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /*--------------H3 en en el que se encuentra el username------------------------*/
 .ulUsernameAndAvatar li h3 {
   padding-left: 4px;
+  /* --Size del nombre de usuario que crea la entry-- */
+  font-size: 16px;
 }
 
 /* --------Imagen del avatar del user que creo la entry------------ */
@@ -92,18 +101,19 @@ header h2 {
 /*---------------Boton para comentar-----------------------*/
 .newCommentButton {
   background-image: url("../../assets/images/add_comment_FILL0_wght400_GRAD0_opsz48.svg");
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 28px;
+  min-width: 28px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
   border: none;
+  margin-right: 5px;
 }
 /*--------------Boton de borrar entry------------------------*/
 .deleteEntryButton {
   background-image: url("../../assets/images/delete_FILL0_wght400_GRAD0_opsz48.svg");
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 28px;
+  min-width: 28px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,19 +1,36 @@
 .mainHeader {
-  border-bottom: 2px solid var(--main-border-color);
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid var(--main-border-color);
+  background-color: var(--main-background-color);
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100px;
+  padding: 8px 14px;
 }
 
 /*------SELECTOR DE CATEGORÍAS--------*/
 
 .categories {
-  border: 1px solid rgb(39, 119, 2);
+  position: fixed;
+  background-color: transparent;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--main-background-color);
+  width: 93%;
+  align-self: flex-end;
 }
 
-.categories option {
-  background-color: aquamarine;
-}
 /*--------------------------------------*/
+
+.mainHeader h1 {
+  margin-top: 5px;
+  font-size: 23.1pt;
+}
 
 /*-----------MAIN HEADER NAV---------------*/
 .mainHeaderNav {
+  margin-top: 2px;
 } /*----------------------------------------*/

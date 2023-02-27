@@ -31,6 +31,8 @@ input {
 #title {
   min-height: 25px;
   padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.161);
+  border-radius: 0.5rem;
 }
 
 /* -----------------------Description input------------------------ */
@@ -78,7 +80,7 @@ input {
   position: relative;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.161);
-  border-radius: 0.25em;
+  border-radius: 0.5rem;
   padding: 6px 8px;
   cursor: pointer;
   line-height: 1.1;
@@ -94,6 +96,7 @@ input {
   align-self: center;
   font-weight: bold;
   margin-top: 10px;
+  background-color: var(--main-button-color);
 }
 
 /* -----------------------Simbolo de upload (SVG)----------------------- */

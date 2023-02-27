@@ -1,3 +1,4 @@
+import "./style.css";
 import useGetUser from "../../hooks/useGetUsers";
 import { useParams } from "react-router-dom";
 import Profile from "../../components/Profile";
@@ -9,18 +10,17 @@ const ProfilePage = () => {
   const { id } = useParams();
   const { user, setUser } = useGetUser(id);
   const { token } = useTokenContext();
+
   return (
-    <>
+    <article className="profilePage">
       <Header />
       <section>
-        <h2>Mi perfil</h2>
-
         {Object.values(user).length > 0 && (
           <Profile user={user} setUser={setUser} />
         )}
       </section>
       {token && <Footer />}
-    </>
+    </article>
   );
 };
 

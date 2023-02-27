@@ -26,6 +26,9 @@ const Entry = ({ comments, setComments, entry }) => {
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env; //Puerto donde alojamos el servidor del backend.
 
+  const dateRegex = /^\w+-\w+-\d{1,2}-\d{4}-/gi; //Regular expresion que selecciona las fechas de nuestro back.
+  const datelessFilename = file_name?.replace(dateRegex, ""); //Nombre del archivo de la entry con la fecha eliminada.
+
   const navigate = useNavigate(); //Esto nos permite redirigir a otras rutas.
 
   //Función para borrar las entradas.
@@ -97,15 +100,22 @@ const Entry = ({ comments, setComments, entry }) => {
       {
         //Si tiene un archivo y estamos en la página de la entry, mostramos el botón de descarga.
         id && file_name && (
-          <button
-            className="downloadButton"
-            onClick={(e) => {
-              saveAs(
-                `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
-                file_name
-              );
-            }}
-          ></button>
+          <section className="entryDownload">
+            <button
+              className="downloadButton"
+              onClick={(e) => {
+                saveAs(
+                  `http://localhost:${REACT_APP_BACKEND_PORT}/${file_name}`,
+                  file_name
+                );
+              }}
+            />
+            <p>{`${
+              datelessFilename.length > 30
+                ? datelessFilename.substr(0, 30) + "..."
+                : datelessFilename
+            }`}</p>
+          </section>
         )
       }
 

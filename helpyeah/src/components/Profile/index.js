@@ -12,19 +12,17 @@ const Profile = ({ user, setUser }) => {
   return (
     <article className="profileArticle">
       <Avatar avatar={avatar} username={username} />
-      <h3>Nombre de usuario: {username}</h3>
-      <h4>Email: {email}</h4>
-      <h4>Bio: {bio}</h4>
-      <p>Se unió {getTimeAgo(new Date(registration_date))}</p>
+      <h2>{username}</h2>
+      <h4>{email}</h4>
+      <p>{bio}</p>
+      <p>Te has unido {getTimeAgo(new Date(registration_date))}</p>
 
       <button
         className="editProfile"
         onClick={(event) => {
           setShowModal(true);
         }}
-      >
-        EDITAR
-      </button>
+      />
 
       {showModal && (
         <Modal className="profile-modal" setShowModal={setShowModal}>
