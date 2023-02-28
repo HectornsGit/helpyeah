@@ -19,6 +19,7 @@ const ProfilePage = () => {
           <Profile user={user} setUser={setUser} />
         )}
       </section>
+
       {token && <Footer />}
     </article>
   );

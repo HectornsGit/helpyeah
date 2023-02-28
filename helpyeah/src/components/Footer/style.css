@@ -2,8 +2,8 @@
   border-top: 1px solid var(--main-border-color);
   display: flex;
   justify-content: center;
-  min-height: 60px;
-  position: fixed;
+  min-height: 10%;
+  position: sticky;
   width: 100vw;
   bottom: 0px;
   background-color: #fffcf2;

@@ -1,12 +1,36 @@
+.listEntries {
+  list-style: none;
+  height: 70%;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
 .listEntries .entry {
   border-bottom: 1px solid var(--main-border-color);
 }
 
 .listEntries h2 {
-  padding-bottom: 15px;
+  padding: 0;
+  padding-bottom: 10px;
+  font-size: var(--h2-font-size);
 }
 
 .listEntries p {
-  padding-bottom: 30px;
-  padding-left: 10px;
+  word-wrap: break-word;
+  padding-bottom: 20px;
+  font-size: var(--p-font-size);
+}
+
+.listEntries .entryFooter ul.ulUsernameAndAvatar h3 {
+  font-size: var(--p-font-size);
+  font-weight: 500;
+}
+
+.listEntries .entryFooter ul.ulUsernameAndAvatar img {
+  width: 30px;
+  height: 30px;
+}
+
+.listEntries .entryFooter {
+  padding: 0;
 }

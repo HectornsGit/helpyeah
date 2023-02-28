@@ -1,0 +1,76 @@
+/* ----------Article del comment---------------- */
+.comment {
+  border-bottom: 1px solid var(--main-border-color);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 10px 0px 10px;
+}
+
+/* -------------parrado de texto del comment--------------------- */
+.comment .commentText {
+  max-height: 150px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+  font-size: var(--p-font-size);
+}
+
+/* -------------------selecciona el contenedor de la parte superior del comment, excepto el primer <p>---------------------------- */
+
+.comment .upperCommentPart {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--p-font-size);
+}
+
+/* ---------li's del ul---------- */
+.comment footer ul li {
+  list-style: none;
+}
+
+/* ---------ul dentro del componente like---------- */
+.comment footer ul li .ulLike {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  font-size: var(--p-font-size);
+}
+
+/* --------boton de descargar archivo------------- */
+.comment .downloadButton {
+  width: 5px;
+}
+button.deleteCommentButton {
+  border: none;
+  margin: 0px 5px 0px 5px;
+  background-color: transparent;
+  background-image: url("../../assets/images/delete_FILL0_wght400_GRAD0_opsz48.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 30px;
+  min-height: 30px;
+}
+/* ---------selecciona el contenedor (ul) en el que esta el avatar, username y el like---------- */
+.comment footer ul li .LikeWithUserAndAvatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ----------------contenedor(article) del avatar y el username----------------------- */
+.comment footer ul li .LikeWithUserAndAvatar li article {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+/* -------------------username--------------------------- */
+.comment footer ul li .LikeWithUserAndAvatar li article p {
+  padding-left: 5px;
+  font-size: var(--h3-font-size);
+  font-weight: 500;
+}

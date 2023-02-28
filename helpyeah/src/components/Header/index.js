@@ -27,9 +27,16 @@ const Header = ({ allEntries, setEntries }) => {
   };
   return (
     <header className="mainHeader">
-      <h1>
-        <Link to={"/"}>HelpYeah</Link>
-      </h1>
+      <section>
+        <h1>
+          <Link to={"/"}>HelpYeah</Link>
+        </h1>
+        {/* Si no hay token, pintamos los enlaces a registro y login */}
+        <nav className="mainHeaderNav">
+          {!token && <AuthWithOutToken />}
+          {token && <AuthWithToken />}
+        </nav>
+      </section>
       {
         //Si nos encontramos en la página principal, mostramos el selector que filtra las entradas.
         location.pathname === "/" && (
@@ -49,11 +56,6 @@ const Header = ({ allEntries, setEntries }) => {
           </select>
         )
       }
-      {/* Si no hay token, pintamos los enlaces a registro y login */}
-      <nav className="mainHeaderNav">
-        {!token && <AuthWithOutToken />}
-        {token && <AuthWithToken />}
-      </nav>
     </header>
   );
 };

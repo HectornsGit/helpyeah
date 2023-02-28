@@ -1,7 +1,7 @@
 import Modal from "../Modal";
 import NewCommentForm from "../NewCommentForm";
 import { useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { saveAs } from "file-saver";
 import "./style.css";
@@ -21,12 +21,14 @@ const Entry = ({ comments, setComments, entry }) => {
     avatar,
     user_id,
   } = entry;
+
   const [showModal, setShowModal] = useState(false); //Estado que maneja la modal del formulario de los comentarios.
   const [checked, setChecked] = useState(solved); //Estado para el switch de "resuelo"
   const { id } = useParams();
   const { REACT_APP_BACKEND_PORT } = process.env; //Puerto donde alojamos el servidor del backend.
+  const location = useLocation();
 
-  const dateRegex = /^\w+-\w+-\d{1,2}-\d{4}-/gi; //Regular expresion que selecciona las fechas de nuestro back.
+  const dateRegex = /^\w+-\w+-\d{1,2}-\d{4}-/gi; //Regular expresion que selecciona las fechas en el formato de nuestro back.
   const datelessFilename = file_name?.replace(dateRegex, ""); //Nombre del archivo de la entry con la fecha eliminada.
 
   const navigate = useNavigate(); //Esto nos permite redirigir a otras rutas.
@@ -61,10 +63,14 @@ const Entry = ({ comments, setComments, entry }) => {
   };
 
   return (
-    <article className={`entry ${!id ? "entryHomePage" : ""}`}>
+    <article
+      className={`entry ${
+        location.pathname !== `/entries/${id}` ? "entryHomePage" : ""
+      }`}
+    >
       {
         //Si estamos en la página principal mostramos solo esto.
-        !id && (
+        location.pathname !== `/entries/${id}` && (
           <Link to={`/entries/${entry.id}`}>
             <header>
               <h2>{title}</h2>
@@ -75,7 +81,7 @@ const Entry = ({ comments, setComments, entry }) => {
       }
       {
         //Si nos encontramos en la página de la entry, añadimos el switch para decidir si está resuelta o no.
-        id && (
+        location.pathname === `/entries/${id}` && (
           <article className="user">
             <header>
               <h2>{title}</h2>
@@ -99,7 +105,7 @@ const Entry = ({ comments, setComments, entry }) => {
       }
       {
         //Si tiene un archivo y estamos en la página de la entry, mostramos el botón de descarga.
-        id && file_name && (
+        location.pathname === `/entries/${id}` && file_name && (
           <section className="entryDownload">
             <button
               className="downloadButton"
@@ -136,7 +142,7 @@ const Entry = ({ comments, setComments, entry }) => {
 
         {
           //Si estamos en la página de la entry mostramos el botón de comentar.
-          id && (
+          location.pathname === `/entries/${id}` && (
             <ul className="delete-comment-items">
               <li>
                 <button

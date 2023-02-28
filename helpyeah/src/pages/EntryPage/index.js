@@ -1,3 +1,4 @@
+import "./style.css";
 import { useParams } from "react-router-dom";
 import useGetEntryById from "../../hooks/useGetEntryById";
 import Entry from "../../components/Entry";
@@ -12,7 +13,7 @@ const EntryPage = () => {
   const { entry, comments, setComments, error, loading } = useGetEntryById(id);
   const { token } = useTokenContext();
   return (
-    <>
+    <article className="styleEntryPage">
       <Header />
       <section>
         {error && <ErrorMessage msg={error} />}
@@ -25,7 +26,7 @@ const EntryPage = () => {
         )}
       </section>
       {token && <Footer />}
-    </>
+    </article>
   );
 };
 export default EntryPage;

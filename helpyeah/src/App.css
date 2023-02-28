@@ -11,14 +11,18 @@ html {
   --main-border-color: rgba(43, 43, 43, 0.3);
   --main-button-color: #ffad46;
   --main-background-color: #fffcf2;
+  --p-font-size: 10pt;
+  --h3-font-size: 12pt;
+  --h2-font-size: 15pt;
+  --h1-font-size: 18pt;
 }
 
 .App {
   text-align: center;
-  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
-.App {
-  font-family: "Heebo", Arial, Helvetica, sans-serif;
+.App p {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 img {
   max-width: 100px;

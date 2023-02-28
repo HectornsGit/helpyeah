@@ -29,6 +29,10 @@ section .entryDownload {
   min-height: 30px;
 }
 
+.entryDownload p {
+  font-size: var(--p-font-size);
+}
+
 /* -------------Todos los li del header---------------------- */
 header ul li {
   list-style: none;
@@ -39,7 +43,8 @@ header ul li {
   align-items: center;
   justify-content: flex-end;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: var(--p-font-size);
 }
 
 /*-------------------li en el que se ve la categoria de la entry-------------------*/
@@ -52,11 +57,14 @@ header ul li {
 .user p {
   padding: 0px 10px 10px 10px;
   margin-bottom: 20px;
+  word-wrap: break-word;
+  font-size: var(--p-font-size);
 }
 
 /*----------------H2 de la entry----------------------*/
 header h2 {
   padding-left: 10px;
+  font-size: var(--h2-font-size);
 }
 
 /*------------ENTRY-FOOTER------------*/
@@ -78,14 +86,14 @@ header h2 {
 /*--------------H3 en en el que se encuentra el username------------------------*/
 .ulUsernameAndAvatar li h3 {
   padding-left: 4px;
-  /* --Size del nombre de usuario que crea la entry-- */
-  font-size: 16px;
+  font-weight: 500;
+  font-size: var(--h3-font-size);
 }
 
 /* --------Imagen del avatar del user que creo la entry------------ */
 .entryFooter img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border-radius: 100%;
 }
 

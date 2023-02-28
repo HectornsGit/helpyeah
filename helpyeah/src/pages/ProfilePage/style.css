@@ -1,13 +1,21 @@
+article.profilePage {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .profilePage .mainHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 8vh;
   padding-right: 20px;
 }
 
 .profilePage .mainHeader h1 {
-  font-size: 20px;
+  font-size: var(--h1-font-size);
 }
 
 .profilePage .mainHeaderNav .menuListWithToken .menuList img {
@@ -19,8 +27,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  justify-content: flex-start;
+  height: 85vh;
+  justify-content: start;
   align-items: start;
   text-align: start;
   padding-left: 15px;
@@ -30,6 +38,7 @@
 .profilePage .profileArticle h2 {
   margin-top: 20px;
   margin-bottom: 10px;
+  font-size: var(--h3-font-size);
 }
 
 .profilePage .profileArticle img.imageAvatar {
@@ -39,14 +48,21 @@
 
 .profilePage .profileArticle h4 {
   margin-bottom: 8px;
+  font-size: var(--p-font-size);
 }
 
 .profilePage .profileArticle p {
   margin-bottom: 8px;
+  font-size: var(--p-font-size);
 }
 
 .profilePage .profileArticle .editProfile {
   position: fixed;
   right: 25px;
   top: 80px;
+}
+
+.profilePage .mainFooter {
+  height: 10%;
+  height: 7vh;
 }

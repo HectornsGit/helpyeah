@@ -2,24 +2,34 @@
   font-family: "Rubik", Arial, Helvetica, sans-serif;
   border-bottom: 1px solid var(--main-border-color);
   background-color: var(--main-background-color);
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 20%;
   display: flex;
+  flex-flow: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 100px;
   padding: 8px 14px;
+  z-index: 500;
+}
+
+.mainHeader > section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /*------SELECTOR DE CATEGORÍAS--------*/
 
 .categories {
-  position: fixed;
   background-color: transparent;
   border: none;
   padding: 4px 8px;
   cursor: pointer;
   line-height: 1.1;
   background-color: var(--main-background-color);
-  width: 93%;
+  width: 100%;
   align-self: flex-end;
 }
 
