@@ -24,9 +24,9 @@ const Entry = ({ comments, setComments, entry }) => {
 
   const [showModal, setShowModal] = useState(false); //Estado que maneja la modal del formulario de los comentarios.
   const [checked, setChecked] = useState(solved); //Estado para el switch de "resuelo"
-  const { id } = useParams();
+  const { id } = useParams(); //Id de la entry actual.
   const { REACT_APP_BACKEND_PORT } = process.env; //Puerto donde alojamos el servidor del backend.
-  const location = useLocation();
+  const location = useLocation(); //Hook que nos devuelve información sobre la ruta actual.
 
   const dateRegex = /^\w+-\w+-\d{1,2}-\d{4}-/gi; //Regular expresion que selecciona las fechas en el formato de nuestro back.
   const datelessFilename = file_name?.replace(dateRegex, ""); //Nombre del archivo de la entry con la fecha eliminada.

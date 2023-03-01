@@ -1,22 +1,28 @@
+/* ---------contenedor de la listEntry--------------- */
 .listEntries {
   list-style: none;
-  height: 70%;
+  height: 88vh;
   padding-left: 10px;
   padding-right: 5px;
+  overflow-y: scroll;
 }
 
+/* ---------cada entry de la lista(li)--------------- */
 .listEntries .entry {
   border-bottom: 1px solid var(--main-border-color);
 }
 
+/* -----------titulo de las entries--------------- */
 .listEntries h2 {
   padding: 0;
   padding-bottom: 10px;
   font-size: var(--h2-font-size);
 }
 
+/* ---------Parrafo de las entries--------------- */
 .listEntries p {
   word-wrap: break-word;
+  padding: 0px 20px 5px 20px;
   padding-bottom: 20px;
   font-size: var(--p-font-size);
 }
@@ -33,4 +39,18 @@
 
 .listEntries .entryFooter {
   padding: 0;
+}
+
+@media (min-width: 600px) {
+  .listEntries {
+    padding: 0 15%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 1px;
+  }
+
+  .listEntries .entry {
+    border: 1px solid var(--main-border-color);
+    border-top: 0;
+    padding: 10px;
+    background-color: white;
+  }
 }

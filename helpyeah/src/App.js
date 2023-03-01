@@ -12,7 +12,7 @@ import EntryPage from "./pages/EntryPage";
 function App() {
   return (
     <>
-      <main>
+      <main className="mainApp">
         <Routes>
           <Route path="/" element={<HomePage />} />
 

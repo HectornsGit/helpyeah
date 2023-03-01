@@ -1,19 +1,20 @@
 import "./style.css";
 import uploadIcon from "../../assets/images/uploadIcon.svg";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTokenContext } from "../../contexts/TokenContext";
+
 const EditUserForm = ({ user, setUser, setShowModal, entries, setEntries }) => {
   //Estos son los estados para controlar los inputs.
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
   const [uploadText, setUploadText] = useState("Sube tu avatar");
-  const filesInputRef = useRef();
+
+  const filesInputRef = useRef(); //Referencia que nos selecciona el input de los archivos.
 
   const { REACT_APP_BACKEND_PORT } = process.env;
-  const navigate = useNavigate();
+
   const { token } = useTokenContext();
 
   return (

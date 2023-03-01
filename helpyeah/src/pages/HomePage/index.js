@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       {loading && <Spinner />}
       <Header allEntries={allEntries} setEntries={setEntries} />
-      <section>
+      <section className="entriesSection">
         {entries.length > 0 && (
           <ListEntries entries={entries} setEntries={setEntries} />
         )}

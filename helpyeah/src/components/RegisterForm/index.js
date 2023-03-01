@@ -87,7 +87,7 @@ const RegisterForm = ({ setShowModal }) => {
         placeholder="Contraseña"
       />
 
-      <button className="registerButton">Register</button>
+      <button className="registerButtonForm">Register</button>
     </form>
   );
 };

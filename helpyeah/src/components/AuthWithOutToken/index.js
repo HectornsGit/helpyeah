@@ -1,3 +1,4 @@
+import "./style.css";
 import Modal from "../Modal";
 import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
@@ -12,7 +13,17 @@ const AuthWithOutToken = () => {
   //---------------------------------------------------------------------------------------------
 
   return (
-    <ul>
+    <ul className="credentials">
+      <li>
+        <button
+          className="loginButton"
+          onClick={(event) => {
+            setShowModalOne(true);
+          }}
+        >
+          Iniciar Sesión |
+        </button>
+      </li>
       <li>
         <button
           className="registerButton"
@@ -21,16 +32,6 @@ const AuthWithOutToken = () => {
           }}
         >
           Registro
-        </button>
-      </li>
-      <li>
-        <button
-          className="loginButton"
-          onClick={(event) => {
-            setShowModalOne(true);
-          }}
-        >
-          Iniciar Sesión
         </button>
       </li>
       {/*------------------MODALES---------------------------*/}

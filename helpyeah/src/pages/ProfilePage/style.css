@@ -1,11 +1,12 @@
+/* ----------------------articulo que engloba la profilepage--------------------------------- */
 article.profilePage {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
+/* -----------------------header de la profile page-------------------------- */
 .profilePage .mainHeader {
   display: flex;
   align-items: center;
@@ -14,15 +15,18 @@ article.profilePage {
   padding-right: 20px;
 }
 
+/* -----------------------h1 del header------------------------- */
 .profilePage .mainHeader h1 {
   font-size: var(--h1-font-size);
 }
 
+/* ------------------------Size del menuList del header--------------------------------- */
 .profilePage .mainHeaderNav .menuListWithToken .menuList img {
   width: 35px;
   height: 35px;
 }
 
+/* ---------------------Articulo contenedor de los datos del perfil (<Profile/>)--------------------------- */
 .profilePage .profileArticle {
   display: flex;
   flex-direction: column;
@@ -35,34 +39,82 @@ article.profilePage {
   padding-top: 20px;
 }
 
+/* ------------------------Nombre de usuario--------------------------- */
 .profilePage .profileArticle h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: var(--h3-font-size);
 }
 
+/* ------------------------Imagen del avatar----------------------------------- */
 .profilePage .profileArticle img.imageAvatar {
   min-width: 120px;
   height: 120px;
 }
 
+/* -------------------------parrafo con el Correo del usuario------------------------------------ */
 .profilePage .profileArticle h4 {
   margin-bottom: 8px;
   font-size: var(--p-font-size);
 }
 
+/* -------------------------parrafo con la biografia del usuario------------------------------------ */
 .profilePage .profileArticle p {
   margin-bottom: 8px;
   font-size: var(--p-font-size);
 }
 
+/* -----------------------boton para editar el perfil--------------------------- */
 .profilePage .profileArticle .editProfile {
   position: fixed;
   right: 25px;
   top: 80px;
 }
 
+/* --------footer en la profile page------------ */
 .profilePage .mainFooter {
   height: 10%;
   height: 7vh;
+}
+
+@media (min-width: 600px) {
+  article.profilePage {
+    margin: 0 15%;
+    border: 1px solid var(--main-border-color);
+  }
+
+  .profilePage .mainHeader {
+    margin: 0;
+  }
+
+  .profilePage .mainFooter {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .profilePage .mainHeaderNav .menuListWithToken .menuList img {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+  }
+
+  .profilePage .mainHeader h1 img {
+    min-width: 200px;
+    min-height: 70px;
+    align-self: center;
+  }
+
+  .profilePage .profileArticle h4,
+  .profilePage .profileArticle p {
+    font-size: var(--h2-font-size);
+  }
+
+  .profilePage .profileArticle h2 {
+    font-size: var(--h1-font-size);
+  }
+
+  .profilePage .profileArticle {
+    margin: 10px;
+  }
 }

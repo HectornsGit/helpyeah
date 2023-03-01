@@ -10,3 +10,26 @@
 .styleEntryPage .mainHeader h1 {
   font-size: var(--h1-font-size);
 }
+
+@media (min-width: 600px) {
+  .styleEntryPage > section {
+    margin: 0 15%;
+    border: 1px solid var(--main-border-color);
+    border-top: 0;
+  }
+  .entry {
+    border: 1px solid var(--main-border-color);
+    border-left: 0;
+    border-right: 0;
+    padding: 10px;
+    background-color: white;
+  }
+  .comment {
+    border: 1px solid var(--main-border-color);
+    border-left: 0;
+    border-right: 0;
+  }
+  .mainFooter {
+    z-index: 500;
+  }
+}

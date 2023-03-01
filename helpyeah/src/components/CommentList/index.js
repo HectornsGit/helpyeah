@@ -1,8 +1,8 @@
 import "./style.css";
 import Comment from "../Comment";
 
+//Componente que recibe los comentarios y los renderiza.
 const CommentList = ({ comments, setComments }) => {
-  //Componente que recibe los comentarios y los renderiza.
   return (
     <ul className="commentList">
       {comments.map((comment) => {

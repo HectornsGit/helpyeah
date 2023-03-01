@@ -1,14 +1,15 @@
 import { useTokenContext } from "../../contexts/TokenContext";
 import { Link } from "react-router-dom";
-import AuthWithOutToken from "../Auth";
-import AuthWithToken from "../LogOut";
+import AuthWithOutToken from "../AuthWithOutToken";
+import AuthWithToken from "../AuthWithToken";
 import { useLocation } from "react-router-dom";
+import logoHelpyeah from "../../assets/images/Helpyeah.svg";
 import "./style.css";
 
 //Componente del header principal (allEntries es un estado creado para guardar todo el listado de entradas sin filtrar).
 const Header = ({ allEntries, setEntries }) => {
   const { token } = useTokenContext();
-  const location = useLocation(); //Comprobamos en que ruta nos encontramos actualmente.
+  const location = useLocation(); //Hook que nos devuelve información sobre la ruta actual.
 
   const handleFilterEntries = (event) => {
     //Si selecciona todas las entradas, cambiamos el estado de vuelta al que tiene todas las entradas.
@@ -29,9 +30,11 @@ const Header = ({ allEntries, setEntries }) => {
     <header className="mainHeader">
       <section>
         <h1>
-          <Link to={"/"}>HelpYeah</Link>
+          <Link to={"/"}>
+            <img src={logoHelpyeah} alt="Logo Helpyeah" />
+          </Link>
         </h1>
-        {/* Si no hay token, pintamos los enlaces a registro y login */}
+        {/* Si no hay token, renderizamos los enlaces a registro y login */}
         <nav className="mainHeaderNav">
           {!token && <AuthWithOutToken />}
           {token && <AuthWithToken />}

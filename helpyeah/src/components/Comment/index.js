@@ -1,8 +1,8 @@
 import "./style.css";
 import { saveAs } from "file-saver";
 import { Link } from "react-router-dom";
-import Avatar from "../Avatar";
 import { useTokenContext } from "../../contexts/TokenContext";
+import Avatar from "../Avatar";
 import Like from "../Like";
 import getTimeAgo from "../../utils/getTimeAgo";
 
@@ -21,8 +21,11 @@ const Comment = ({ comment, comments, setComments }) => {
     username,
     isLiked,
   } = comment;
-  const creationDateString = getTimeAgo(new Date(creation_date));
+
+  const creationDateString = getTimeAgo(new Date(creation_date)); //Función que recibe una fecha y nos genera una string con el tiempo que hace desde la susodicha.
+
   const { loggedUser, token } = useTokenContext(); //Usuario actual y token del propio.
+
   // Función para borrar un comentario.
   const deleteComent = async () => {
     const res = await fetch(

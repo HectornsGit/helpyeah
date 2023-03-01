@@ -1,0 +1,19 @@
+.credentials {
+  display: flex;
+  justify-content: space-between;
+  align-items: cemter;
+  height: 100%;
+  gap: 4px;
+}
+
+.credentials li {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.credentials button {
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+}

@@ -3,3 +3,11 @@
   height: 30px;
   width: 30px;
 }
+
+@media (min-width: 600px) {
+  .imageAvatar {
+    height: 55px;
+    width: 55px;
+    margin-bottom: 5px;
+  }
+}

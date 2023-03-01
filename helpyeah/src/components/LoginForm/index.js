@@ -84,7 +84,7 @@ const LoginForm = ({ setShowModal }) => {
         placeholder="Contraseña"
       />
 
-      <button className="loginButton">Iniciar sesion</button>
+      <button className="loginButtonForm">Iniciar sesion</button>
     </form>
   );
 };
