@@ -7,10 +7,6 @@
   overflow-y: scroll;
 }
 
-.styleEntryPage .mainHeader h1 {
-  font-size: var(--h1-font-size);
-}
-
 @media (min-width: 600px) {
   .styleEntryPage > section {
     margin: 0 15%;

@@ -85,10 +85,9 @@ const NewEntryForm = ({ setShowModal }) => {
           }
         }}
       >
-        <label className="entryTitle" htmlFor="title">
-          ¿Cuál es tu duda?
-        </label>
+        <label className="entryTitle" htmlFor="title" />
         <input
+          placeholder="¿Cuál es tu duda?"
           id="title"
           required
           value={title}
@@ -97,10 +96,9 @@ const NewEntryForm = ({ setShowModal }) => {
           }}
         />
 
-        <label className="entryDescription" htmlFor="description">
-          Cuéntanos más...
-        </label>
+        <label className="entryDescription" htmlFor="description" />
         <textarea
+          placeholder="Cuéntanos más..."
           id="description"
           required
           value={description}

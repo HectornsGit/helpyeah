@@ -28,7 +28,7 @@
   z-index: 2000;
 }
 
-/* ----------Dmodal de editUserForm -------- */
+/* ----------Modal de editUserForm -------- */
 .profile-modal .modalContainer {
   max-height: 350px;
 }
@@ -43,7 +43,40 @@
   max-height: 200px;
   max-width: 300px;
 }
+
 /* ----------Modal de comments-------- */
 .comments-modal .modalContainer {
   max-height: 450px;
+}
+
+/*--------------------Tablets en vertical--------------------------*/
+@media (min-width: 600px) {
+  .comments-modal .modalContainer {
+    max-height: 65vh;
+    width: 70vw;
+  }
+  .modal .modalContainer {
+    max-height: 65vh;
+    width: 70vw;
+  }
+}
+
+/*-------------Smartphones/Tablets en horizontal------------------*/
+@media (max-height: 600px) {
+  .comments-modal .modalContainer {
+    max-height: 80vh;
+  }
+  .modal .modalContainer {
+    max-height: 80vh;
+  }
+}
+
+/*----------------iPad Air----------------------*/
+@media (min-height: 1000px) {
+  .comments-modal .modalContainer {
+    max-height: 50vh;
+  }
+  .modal .modalContainer {
+    max-height: 50vh;
+  }
 }

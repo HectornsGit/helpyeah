@@ -31,7 +31,11 @@ const Header = ({ allEntries, setEntries }) => {
       <section>
         <h1>
           <Link to={"/"}>
-            <img src={logoHelpyeah} alt="Logo Helpyeah" />
+            <img
+              className="logoHelpyeah"
+              src={logoHelpyeah}
+              alt="Logo Helpyeah"
+            />
           </Link>
         </h1>
         {/* Si no hay token, renderizamos los enlaces a registro y login */}

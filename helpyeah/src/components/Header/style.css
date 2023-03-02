@@ -18,6 +18,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 /*------SELECTOR DE CATEGORÍAS--------*/
@@ -36,7 +37,8 @@
 }
 /*--------------------------------------*/
 
-.mainHeader img {
+img.logoHelpyeah {
+  height: 30px;
 }
 /*-----------MAIN HEADER NAV---------------*/
 .mainHeaderNav {
@@ -45,16 +47,29 @@
 
 @media (min-width: 600px) {
   .mainHeader {
-    margin: 0 15%;
-    width: 70vw;
+    width: 100%;
     display: flex;
     justify-content: center;
-
-    border-right: 1px solid var(--main-border-color);
-    border-left: 1px solid var(--main-border-color);
   }
-
+  img.logoHelpyeah {
+    height: 55px;
+  }
   .mainHeader h1 {
     margin: 0;
+  }
+}
+
+/* ---------------------Ipad air horizontal-------------------------------- */
+@media (min-width: 600px) and (max-height: 1000px) {
+  .mainHeader {
+    margin: 0;
+    width: 100%;
+    border-right: 1px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    height: 15vh;
+  }
+  h1 img.logoHelpyeah {
+    height: 40px;
+    min-width: 160px;
   }
 }

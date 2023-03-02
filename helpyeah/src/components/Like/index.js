@@ -7,16 +7,17 @@ import { useState } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
 
 export default function Like({
-  isLiked,
+  userLike,
   likes,
   id,
   entry_id,
   comments,
   setComments,
+  disabled,
 }) {
   const { REACT_APP_BACKEND_PORT } = process.env;
   const { token } = useTokenContext();
-  const [checked, setChecked] = useState(isLiked);
+  const [checked, setChecked] = useState(userLike);
 
   const toggleLike = async () => {
     const res = await fetch(
@@ -44,20 +45,45 @@ export default function Like({
     setChecked(!checked);
     setComments(updatedComments);
   };
+  if (!disabled) {
+    return (
+      <ul className="ulLike">
+        <li>
+          <Checkbox
+            onClick={(event) => {
+              toggleLike();
+            }}
+            sx={{
+              color: teal,
+              "&.Mui-checked": {
+                color: pink[600],
+              },
+            }}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+            checked={checked}
+          />
+        </li>
+        <li>{likes}</li>
+      </ul>
+    );
+  }
   return (
     <ul className="ulLike">
       <li>
         <Checkbox
+          disabled
           onClick={(event) => {
             toggleLike();
           }}
           sx={{
-            color: teal,
+            color: pink[100],
             "&.Mui-checked": {
               color: pink[600],
             },
+            "&.Mui-disabled": { fill: pink },
           }}
-          icon={<FavoriteBorder />}
+          icon={<Favorite />}
           checkedIcon={<Favorite />}
           checked={checked}
         />

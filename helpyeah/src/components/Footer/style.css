@@ -1,13 +1,18 @@
+/* -------------------Footer--------------------------- */
+
 .mainFooter {
   border-top: 1px solid var(--main-border-color);
   display: flex;
   justify-content: center;
   min-height: 10%;
   position: sticky;
-  width: 100vw;
   bottom: 0px;
+  width: 100vw;
   background-color: #fffcf2;
+  z-index: 500;
 }
+
+/* -------------------Botón Nueva Entry--------------------------- */
 
 .newEntryButton {
   background-color: transparent;
@@ -16,16 +21,15 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 5px;
-  min-width: 45px;
-  min-height: 45px;
-  max-width: 45px;
-  max-height: 45px;
+  width: 45px;
+  height: 45px;
 }
+
+/* -------------------Footer Query--------------------------- */
 
 @media (min-width: 600px) {
   .mainFooter {
-    margin: 0 15%;
-    width: 70vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     border-right: 1px solid var(--main-border-color);

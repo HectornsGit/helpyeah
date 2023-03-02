@@ -19,7 +19,7 @@ const Comment = ({ comment, comments, setComments }) => {
     likes,
     avatar,
     username,
-    isLiked,
+    userLike,
   } = comment;
 
   const creationDateString = getTimeAgo(new Date(creation_date)); //Función que recibe una fecha y nos genera una string con el tiempo que hace desde la susodicha.
@@ -92,10 +92,21 @@ const Comment = ({ comment, comments, setComments }) => {
 
               {
                 //Mostramos el botón de like si el usuario no es el dueño del comentario.
-                loggedUser.id !== user_id && (
+                loggedUser.id === user_id || !loggedUser.id ? (
                   <li>
                     <Like
-                      isLiked={isLiked}
+                      disabled={true}
+                      likes={likes}
+                      comments={comments}
+                      setComments={setComments}
+                      entry_id={entry_id}
+                      id={id}
+                    />
+                  </li>
+                ) : (
+                  <li>
+                    <Like
+                      userLike={userLike}
                       likes={likes}
                       comments={comments}
                       setComments={setComments}

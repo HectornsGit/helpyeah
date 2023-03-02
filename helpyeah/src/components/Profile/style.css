@@ -1,6 +1,6 @@
 .editProfile {
   background-image: url(../../assets/images/edit_FILL0_wght400_GRAD0_opsz48.svg);
-  background-color: var(--main-button-color);
+  background-color: transparent;
   background-repeat: no-repeat;
   background-size: 26px;
   background-position: center;

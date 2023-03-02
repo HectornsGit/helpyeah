@@ -1,8 +1,12 @@
+/* -------------------Avatar--------------------------- */
+
 .imageAvatar {
   border-radius: 100%;
   height: 30px;
   width: 30px;
 }
+
+/* -------------------Avatar Query--------------------------- */
 
 @media (min-width: 600px) {
   .imageAvatar {

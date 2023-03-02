@@ -70,9 +70,34 @@ input {
   align-self: center;
   font-weight: bold;
   margin-top: 25px;
+  background-color: var(--main-button-color);
 }
 
 /* -----------------------Simbolo de upload (SVG)----------------------- */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+@media (min-width: 600px) {
+  .postCommentButton {
+    padding: 1.2rem 2.25rem;
+    font-size: 12pt;
+    margin-top: 70px;
+  }
+  #text {
+    min-height: 280px;
+  }
+}
+
+@media (max-height: 600px) {
+  .writeYourComment {
+    height: 20px;
+  }
+  #text {
+    min-height: 120px;
+  }
+  .postCommentButton {
+    padding: 0.8rem 1.5rem;
+    margin-top: 50px;
+  }
 }
