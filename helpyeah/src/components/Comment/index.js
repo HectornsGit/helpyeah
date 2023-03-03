@@ -5,6 +5,7 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import Avatar from "../Avatar";
 import Like from "../Like";
 import getTimeAgo from "../../utils/getTimeAgo";
+import removeDateFromFilename from "../../utils/removeDateFromFilename";
 
 //Componente de los comentarios.
 const Comment = ({ comment, comments, setComments }) => {
@@ -25,6 +26,8 @@ const Comment = ({ comment, comments, setComments }) => {
   const creationDateString = getTimeAgo(new Date(creation_date)); //Función que recibe una fecha y nos genera una string con el tiempo que hace desde la susodicha.
 
   const { loggedUser, token } = useTokenContext(); //Usuario actual y token del propio.
+
+  const datelessFilename = removeDateFromFilename(file_name);
 
   // Función para borrar un comentario.
   const deleteComent = async () => {
@@ -58,11 +61,16 @@ const Comment = ({ comment, comments, setComments }) => {
       <p className="commentText">{text}</p>
 
       <ul className="upperCommentPart">
-        <li>
+        <li className="creationCommentDateContainer">
           <p>{creationDateString}</p>
         </li>
         {file_name && (
-          <li>
+          <li className="commentDownloadButtonContainer">
+            <p>{`${
+              datelessFilename.length > 30
+                ? datelessFilename.substr(0, 30) + "..."
+                : datelessFilename
+            }`}</p>
             <button
               className={"downloadButton"}
               onClick={(e) => {
@@ -81,7 +89,7 @@ const Comment = ({ comment, comments, setComments }) => {
         <ul>
           <li>
             <ul className="LikeWithUserAndAvatar">
-              <li>
+              <li className="commentUserContainer">
                 <Link to={`/users/${user_id}`}>
                   <article>
                     <Avatar avatar={avatar} username={username} />
@@ -89,7 +97,16 @@ const Comment = ({ comment, comments, setComments }) => {
                   </article>
                 </Link>
               </li>
-
+              {loggedUser.id === user_id && (
+                <li className="deleteCommentButtonContainer">
+                  <button
+                    className="deleteCommentButton"
+                    onClick={async (event) => {
+                      deleteComent();
+                    }}
+                  />
+                </li>
+              )}
               {
                 //Mostramos el botón de like si el usuario no es el dueño del comentario.
                 loggedUser.id === user_id || !loggedUser.id ? (
@@ -116,16 +133,6 @@ const Comment = ({ comment, comments, setComments }) => {
                   </li>
                 )
               }
-              {loggedUser.id === user_id && (
-                <li>
-                  <button
-                    className="deleteCommentButton"
-                    onClick={async (event) => {
-                      deleteComent();
-                    }}
-                  />
-                </li>
-              )}
             </ul>
           </li>
         </ul>

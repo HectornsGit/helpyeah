@@ -7,6 +7,7 @@ import { saveAs } from "file-saver";
 import "./style.css";
 import SolvedSwitch from "../SolvedSwitch";
 import { toast } from "react-toastify";
+import removeDateFromFilename from "../../utils/removeDateFromFilename";
 
 //Componente de las entries.
 const Entry = ({ comments, setComments, entry }) => {
@@ -28,8 +29,7 @@ const Entry = ({ comments, setComments, entry }) => {
   const { REACT_APP_BACKEND_PORT } = process.env; //Puerto donde alojamos el servidor del backend.
   const location = useLocation(); //Hook que nos devuelve información sobre la ruta actual.
 
-  const dateRegex = /^\w+-\w+-\d{1,2}-\d{4}-/gi; //Regular expresion que selecciona las fechas en el formato de nuestro back.
-  const datelessFilename = file_name?.replace(dateRegex, ""); //Nombre del archivo de la entry con la fecha eliminada.
+  const datelessFilename = removeDateFromFilename(file_name);
 
   const navigate = useNavigate(); //Esto nos permite redirigir a otras rutas.
 

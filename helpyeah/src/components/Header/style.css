@@ -4,7 +4,7 @@
   background-color: var(--main-background-color);
   position: sticky;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 20%;
   display: flex;
   flex-flow: column;
@@ -71,5 +71,14 @@ img.logoHelpyeah {
   h1 img.logoHelpyeah {
     height: 40px;
     min-width: 160px;
+  }
+}
+
+/* ---------------------PC------------------------------- */
+
+@media (min-width: 1000px) {
+  .mainHeader {
+    border-right: none;
+    border-left: none;
   }
 }

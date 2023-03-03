@@ -5,6 +5,7 @@ import Favorite from "@mui/icons-material/Favorite";
 import { pink, teal } from "@mui/material/colors";
 import { useState } from "react";
 import { useTokenContext } from "../../contexts/TokenContext";
+import "./style.css";
 
 export default function Like({
   userLike,
@@ -73,9 +74,6 @@ export default function Like({
       <li>
         <Checkbox
           disabled
-          onClick={(event) => {
-            toggleLike();
-          }}
           sx={{
             color: pink[100],
             "&.Mui-checked": {

@@ -11,7 +11,8 @@
   justify-content: flex-end;
 }
 
-.credentials button {
+.credentials button.loginButton,
+.credentials button.registerButton {
   font-size: 10px;
   font-weight: 700;
   border: none;

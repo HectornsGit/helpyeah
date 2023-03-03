@@ -101,3 +101,9 @@ input {
     margin-top: 50px;
   }
 }
+
+@media (min-width: 1000px) {
+  .newCommentForm {
+    justify-content: space-around;
+  }
+}

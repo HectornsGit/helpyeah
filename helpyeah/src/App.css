@@ -42,5 +42,6 @@ a:visited {
   background-color: rgb(255, 254, 254);
 }
 
-@media (min-width: 600px) {
+::-webkit-scrollbar {
+  display: none;
 }

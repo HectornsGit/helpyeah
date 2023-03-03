@@ -9,7 +9,7 @@
 /* -------------------Avatar Query--------------------------- */
 
 @media (min-width: 600px) {
-  .imageAvatar {
+  .mainHeader .imageAvatar {
     height: 55px;
     width: 55px;
     margin-bottom: 5px;

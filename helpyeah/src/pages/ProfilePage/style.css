@@ -181,3 +181,15 @@ article.profilePage {
     height: 8%;
   }
 }
+
+/* ---------------------PC------------------------------- */
+
+@media (min-width: 800px) {
+  .profilePage .profileArticle .editProfile {
+    right: 260px;
+    top: 140px;
+  }
+  form.editUserForm {
+    justify-content: space-around;
+  }
+}

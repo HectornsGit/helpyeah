@@ -53,7 +53,7 @@ const Header = ({ allEntries, setEntries }) => {
               handleFilterEntries(event);
             }}
           >
-            <option value={"Todas"}>-</option>
+            <option value={"Todas"}>Categorías</option>
             <option value={"Matemáticas"}>Matemáticas</option>
             <option value={"Traducciones"}>Traducciones</option>
             <option value={"Modelado 3D"}>Modelado 3D</option>

@@ -127,7 +127,7 @@ const NewEntryForm = ({ setShowModal }) => {
         />
 
         <label className="entryCategory" htmlFor="category">
-          Categorias
+          Categoría
         </label>
 
         <select

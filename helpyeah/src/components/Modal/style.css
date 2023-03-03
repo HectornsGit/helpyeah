@@ -80,3 +80,24 @@
     max-height: 50vh;
   }
 }
+
+@media (min-width: 800px) {
+  .modal .modalContainer {
+    min-height: 75vh;
+  }
+  .comments-modal .modalContainer {
+    min-height: 500px;
+  }
+  .login-modal div.modalContainer {
+    min-height: 50px;
+    max-height: 250px;
+  }
+  .register-modal div.modalContainer {
+    min-height: 50px;
+    max-height: 250px;
+  }
+  .profile-modal div.modalContainer {
+    min-height: 50px;
+    max-height: 400px;
+  }
+}

@@ -41,3 +41,9 @@
   font-weight: bold;
   margin-bottom: -5px;
 }
+
+@media (min-width: 800px) {
+  .loginForm {
+    justify-content: space-around;
+  }
+}
