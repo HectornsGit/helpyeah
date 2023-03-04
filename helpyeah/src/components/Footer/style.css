@@ -3,6 +3,7 @@
 .mainFooter {
   border-top: 1px solid var(--main-border-color);
   display: flex;
+
   justify-content: center;
   min-height: 10%;
   position: sticky;

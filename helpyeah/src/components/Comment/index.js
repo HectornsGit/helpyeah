@@ -6,6 +6,7 @@ import Avatar from "../Avatar";
 import Like from "../Like";
 import getTimeAgo from "../../utils/getTimeAgo";
 import removeDateFromFilename from "../../utils/removeDateFromFilename";
+import { toast } from "react-toastify";
 
 //Componente de los comentarios.
 const Comment = ({ comment, comments, setComments }) => {
@@ -51,9 +52,10 @@ const Comment = ({ comment, comments, setComments }) => {
     const filteredComments = comments.filter((comment) => {
       return comment.id !== id;
     });
-
     //Actualizamos el estado para que desaparezca de la entry el comentario que acabamos de borrar.
     setComments(filteredComments);
+
+    toast.success("¡Comentario eliminado!");
   };
 
   return (

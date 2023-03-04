@@ -54,6 +54,7 @@ const Entry = ({ comments, setComments, entry }) => {
       if (!res.ok) {
         throw new Error(body.message);
       }
+      toast.success("¡Publicación eliminada!");
 
       navigate("/");
     } catch (error) {
@@ -142,7 +143,7 @@ const Entry = ({ comments, setComments, entry }) => {
 
         {
           //Si estamos en la página de la entry mostramos el botón de comentar.
-          location.pathname === `/entries/${id}` && (
+          location.pathname === `/entries/${id}` && token && (
             <ul className="delete-comment-items">
               <li>
                 <button

@@ -5,6 +5,7 @@ import { useTokenContext } from "../../contexts/TokenContext";
 import useGetEntries from "../../hooks/useGetEntries";
 import Footer from "../../components/Footer";
 import Spinner from "../../components/Spinner";
+import "./style.css";
 
 const HomePage = () => {
   const { allEntries, entries, setEntries, loading } = useGetEntries();
@@ -17,8 +18,10 @@ const HomePage = () => {
       {loading && <Spinner />}
       <Header allEntries={allEntries} setEntries={setEntries} />
       <section className="entriesSection">
-        {entries.length > 0 && (
+        {entries.length > 0 ? (
           <ListEntries entries={entries} setEntries={setEntries} />
+        ) : (
+          <p className="noEntries">No se encontraron publicaciones...</p>
         )}
       </section>
       {token && <Footer entries={allEntries} setEntries={setEntries} />}
