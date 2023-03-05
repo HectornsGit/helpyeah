@@ -186,7 +186,7 @@ article.profilePage {
 
 @media (min-width: 800px) {
   .profilePage .profileArticle .editProfile {
-    right: 260px;
+    right: 16.5vw;
     top: 140px;
   }
   form.editUserForm {

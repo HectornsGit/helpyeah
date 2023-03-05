@@ -5,13 +5,10 @@
   list-style: none;
   border-bottom: 1px solid rgba(43, 43, 43, 0.3);
 }
-.solved {
-  background-color: cadetblue;
+.entry p.entryDescription {
+  padding-left: 0;
+  text-align: justify;
 }
-.unsolved {
-  background-color: rgb(220, 217, 223);
-}
-
 /* -------------Download button---------------------- */
 section .entryDownload {
   display: flex;

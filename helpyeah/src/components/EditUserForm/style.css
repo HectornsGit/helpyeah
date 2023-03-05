@@ -64,6 +64,7 @@
   align-self: center;
   font-weight: bold;
   margin-top: 15px;
+  background-color: var(--main-button-color);
 }
 
 /* -----------------------Simbolo de upload (SVG)----------------------- */

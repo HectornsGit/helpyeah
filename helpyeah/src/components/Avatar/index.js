@@ -2,9 +2,9 @@ import "./style.css";
 
 //Componente que muestra el avatar del usuario deseado, recibe un nombre de usuario y su avatar.
 const Avatar = ({ username, avatar, menuOnClick }) => {
-  //menuOnClick sirve para abrir un menú flotante pulsando el avatar.
   const { REACT_APP_BACKEND_PORT } = process.env;
 
+  //menuOnClick sirve para abrir un menú flotante pulsando el avatar.
   return (
     <img
       onClick={menuOnClick}

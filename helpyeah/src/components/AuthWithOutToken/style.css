@@ -1,16 +1,17 @@
+/*----Ul contenedor de los botones---*/
 .credentials {
   display: flex;
   justify-content: space-between;
-  align-items: cemter;
+  align-items: center;
   height: 100%;
   gap: 4px;
 }
-
+/*----contenedor de los botones---*/
 .credentials li {
   display: flex;
   justify-content: flex-end;
 }
-
+/*------elementos de cada botón-------*/
 .credentials button.loginButton,
 .credentials button.registerButton {
   font-size: 10px;

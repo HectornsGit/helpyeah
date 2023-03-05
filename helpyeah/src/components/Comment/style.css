@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 15px 10px 0px 10px;
+  padding: 15px 10px 0px 15px;
 }
 
 /* -------------párrafo de texto del comment--------------------- */

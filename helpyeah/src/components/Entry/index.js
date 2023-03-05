@@ -76,7 +76,7 @@ const Entry = ({ comments, setComments, entry }) => {
             <header>
               <h2>{title}</h2>
             </header>
-            <p>{description}</p>
+            <p className="entryDescription">{description}</p>
           </Link>
         )
       }
