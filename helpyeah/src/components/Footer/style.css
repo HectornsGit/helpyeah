@@ -9,7 +9,7 @@
   position: sticky;
   bottom: 0px;
   width: 100%;
-  background-color: #fffcf2;
+  background-color: var(--main-background-color);
   z-index: 500;
 }
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { alpha, styled } from "@mui/material/styles";
-import { green, lightGreen } from "@mui/material/colors";
+import { green, lightGreen, pink } from "@mui/material/colors";
 import Switch from "@mui/material/Switch";
 import { useTokenContext } from "../../contexts/TokenContext";
 import { useParams } from "react-router-dom";
@@ -15,7 +15,7 @@ const StyleSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
     backgroundColor: green[400],
   },
-  "& .MuiSwitch-switchBase.Mui-disabled": { color: lightGreen[400] },
+  "& .MuiSwitch-switchBase.Mui-disabled": { color: pink[400] },
   "& .MuiSwitch-switchBase.Mui-checked.Mui-disabled": {
     color: lightGreen[400],
   },
