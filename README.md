@@ -5,7 +5,7 @@ Aplicación frontend para pedir ayuda a otros usuarios. Gestiona usuarios, publi
 - [Node.js](https://nodejs.org/en/download).
 - [Backend](https://github.com/HectornsGit/portal_necesidades).
 
-## Instrucciones
+## Instrucciones de instalación
 
 1. Clona este repositorio.
 2. Clona el repositorio del [backend](https://github.com/HectornsGit/portal_necesidades) y sigue las instrucciones.
