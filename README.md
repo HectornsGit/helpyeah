@@ -1,5 +1,6 @@
 # HelpYeah
 Aplicación frontend para pedir ayuda a otros usuarios. Gestiona usuarios, publicaciones, comentarios y likes.
+Desarrollada con [React](https://es.react.dev/) y algún componente de [MUI material](https://mui.com/)
 
 ## Requisitos previos
 - [Node.js](https://nodejs.org/en/download).
